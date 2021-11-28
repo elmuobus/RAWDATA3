@@ -1,0 +1,239 @@
+body {
+    background-color: #121212;
+}
+
+.poppins {
+    font-family: "poppins", serif;
+    color: #E0E0E0;
+}
+
+.logo {
+    margin: auto 20px auto 0;
+}
+
+.link {
+    padding: 22px 0;
+    font-size: 24px;
+    margin-left: 18px;
+    margin-right: 18px;
+    color: #E0E0E0;
+}
+
+.link:hover {
+    color: #FFFFFF;
+}
+
+.dropdown-toggle-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: aquamarine;
+    margin-right: 10px;
+}
+
+.dropdown-toggle {
+    background-color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+    color: #FFFFFF;
+    border: none;
+    height: 100%;
+    border-radius: 50px;
+    padding-left: 2px;
+    padding-right: 18px;
+}
+
+.dropdown-toggle:after {
+    vertical-align: 0.15em;
+}
+
+.select {
+    background-color: #E0E0E0;
+}
+
+.login-button {
+    width: 105px;
+    height: 30px;
+    background-color: #828282;
+    border: none;
+    border-radius: 50px;
+    color: #121212;
+    margin-right: 20px;
+    font-size: 12px;
+}
+
+.login-button:hover {
+    background-color: transparent;
+    border: 2px solid #828282;
+    color: #828282;
+}
+
+.register-button {
+    width: 105px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid #828282;
+    border-radius: 50px;
+    color: #828282;
+    font-size: 12px;
+}
+
+.register-button:hover {
+    background-color: #828282;
+    border: none;
+    color: #121212;
+}
+
+input[type=text] {
+    height: 42px;
+    width: 100%;
+    border-radius: 50px;
+    padding-left: 40px;
+    background-color: #333333;
+    border: none;
+    font-size: 12px;
+}
+
+input[type=text]:focus {
+    color: #828282;
+}
+
+.search-input {
+    margin-top: 35px;
+    color: #828282;
+    position: relative;
+}
+
+.search-input > .bi {
+    padding-left: 15px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+.search-input .filter {
+    z-index: 1;
+    background-color: #BDBDBD;
+    margin-right: 5px;
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    border-radius: 50%;
+    right: 0;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(0, -50%);
+    color: #333333;
+    border: none;
+}
+
+.search-filter-container {
+    position: absolute;
+    z-index: 1;
+    padding: 20px 30px;
+    width: 330px;
+    height: 330px;
+    top: -12px;
+    right: -10px;
+    border-radius: 30px;
+    background-color: #BDBDBD;
+}
+
+.search-filter-header {
+    font-size: 16px;
+    color: #333333;
+}
+
+.titles-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    min-height: 0;
+    min-width: 0;
+    grid-column-gap: 30px;
+}
+
+@media screen and (max-width: 992px) {
+    .titles-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .titles-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.title-container {
+    padding-top: 30px;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.title-name {
+    font-size: 22px;
+    color: #F2F2F2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.title-rating {
+    padding: 6px 7px;
+    background-color: #E0E0E0;
+    border-radius: 6px;
+    white-space: nowrap;
+    color: #121212;
+    font-size: 12px;
+    letter-spacing: -0.03em;
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.title-rating-star {
+    background: -moz-linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    background: -webkit-linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    background: linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-right: 6px;
+}
+
+.title-description {
+    font-size: 14px;
+    color: #BDBDBD;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.preview-poster-container {
+    aspect-ratio: 2 / 1;
+    width: 100%;
+    position: relative;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 6%;
+}
+
+.preview-poster {
+    object-fit: contain;
+}
+
+.preview-poster-background {
+    z-index: -1;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+
+    margin-top: -3px;
+    margin-left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    
+    position: absolute;
+    object-fit: cover;
+}
