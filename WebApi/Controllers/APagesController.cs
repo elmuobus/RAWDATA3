@@ -35,10 +35,11 @@ namespace WebApi.Controllers
 
             return new PageViewModel<T>()
             {
-                Total = total,
-                Previous = urlGenerator(page - 1, pageSize, lastPage),
-                Current = urlGenerator(page, pageSize, lastPage),
-                Next = urlGenerator(page + 1, pageSize, lastPage),
+                TotalPage = lastPage,
+                PageSize = pageSize,
+                Previous = page > 0 ? page - 1 : null,
+                Current = page,
+                Next = page < lastPage ? page + 1 : null,
                 Items = model
             };
         }

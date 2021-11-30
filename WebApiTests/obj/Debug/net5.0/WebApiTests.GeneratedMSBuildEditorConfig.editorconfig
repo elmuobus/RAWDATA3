@@ -7,4 +7,4 @@ build_property.PublishSingleFile =
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
 build_property.RootNamespace = WebApiTests
-build_property.ProjectDir = /home/adelebecque/Project4/Portfolio_subproject_2/API/WebApiTests/
+build_property.ProjectDir = /home/adelebecque/Project4/RAWDATA3/WebApiTests/

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PTH156i22WRlnuGIahFLy+O1gaWNyuPDGJwFyrRFurMtJ/QaZqSu7pIspuuB5J3nW9uLy1mRu0fuwmtrfmPUWA==",
+  "dgSpecHash": "jcBwY7jbC6wz+b682qsVAHbQ7Ih2R3ElUnex58JHXQzG1+LC8+A8BwrV7A0+fpVjZDRM5i7zZxUlNqWtTFiE2g==",
   "success": true,
-  "projectFilePath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApiTests/WebApiTests.csproj",
+  "projectFilePath": "/home/adelebecque/Project4/RAWDATA3/WebApiTests/WebApiTests.csproj",
   "expectedPackageFiles": [
     "/home/adelebecque/.nuget/packages/automapper/10.1.1/automapper.10.1.1.nupkg.sha512",
     "/home/adelebecque/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/8.1.1/automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",

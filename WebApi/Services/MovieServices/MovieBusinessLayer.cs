@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using WebApi.Domain;
@@ -58,11 +59,12 @@ namespace WebApi.Services.MovieServices
         }
         
         // Get All TitleBasics
-        public IList<TitleBasics> GetTitleBasics(int page, int pageSize)
+        public IList<TitleBasics> GetTitleBasics(int page, int pageSize, string searchText)
         {
             return _ctx.TitleBasics
                 .Include(x => x.OmdbData)
                 .Include(x => x.TitleRatings)
+                .Where(x => x.OriginalTitle.Contains(searchText))
                 .Skip(page * pageSize)
                 .Take(pageSize)
                 .ToList();

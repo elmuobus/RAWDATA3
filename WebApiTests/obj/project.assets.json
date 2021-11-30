@@ -7220,11 +7220,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApiTests/WebApiTests.csproj",
+      "projectUniqueName": "/home/adelebecque/Project4/RAWDATA3/WebApiTests/WebApiTests.csproj",
       "projectName": "WebApiTests",
-      "projectPath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApiTests/WebApiTests.csproj",
+      "projectPath": "/home/adelebecque/Project4/RAWDATA3/WebApiTests/WebApiTests.csproj",
       "packagesPath": "/home/adelebecque/.nuget/packages/",
-      "outputPath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApiTests/obj/",
+      "outputPath": "/home/adelebecque/Project4/RAWDATA3/WebApiTests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/adelebecque/.nuget/NuGet/NuGet.Config"
@@ -7239,8 +7239,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApi/WebApi.csproj": {
-              "projectPath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApi/WebApi.csproj"
+            "/home/adelebecque/Project4/RAWDATA3/WebApi/WebApi.csproj": {
+              "projectPath": "/home/adelebecque/Project4/RAWDATA3/WebApi/WebApi.csproj"
             }
           }
         }

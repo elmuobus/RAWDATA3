@@ -24,11 +24,16 @@ namespace WebApi.Controllers.MovieControllers
             _mapper = mapper;
         }
 
+        public class PagesQueryStringWithSearch : PagesQueryString
+        {
+            public string SearchTitle { get; set; } = "";
+        }
+
         [HttpGet(Name = nameof(GetTitleBasics))]
-        public IActionResult GetTitleBasics([FromQuery]PagesQueryString pagesQueryString)
+        public IActionResult GetTitleBasics([FromQuery]PagesQueryStringWithSearch pagesQueryString)
         {
             var titleBasics = _movieBusinessLayer
-                .GetTitleBasics(pagesQueryString.Page, pagesQueryString.PageSize)
+                .GetTitleBasics(pagesQueryString.Page, pagesQueryString.PageSize, pagesQueryString.SearchTitle)
                 .Select(CreateTitleBasicsListViewModel);
             return Ok(CreatePagingResult(
                 pagesQueryString.Page,
@@ -49,7 +54,7 @@ namespace WebApi.Controllers.MovieControllers
 
             return Ok(titleBasic);
         }
-        
+
         private TitleBasicsListViewModel CreateTitleBasicsListViewModel(TitleBasics titleBasics)
         {
             var model = _mapper.Map<TitleBasicsListViewModel>(titleBasics);

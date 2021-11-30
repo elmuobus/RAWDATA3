@@ -5838,11 +5838,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApi/WebApi.csproj",
+      "projectUniqueName": "/home/adelebecque/Project4/RAWDATA3/WebApi/WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApi/WebApi.csproj",
+      "projectPath": "/home/adelebecque/Project4/RAWDATA3/WebApi/WebApi.csproj",
       "packagesPath": "/home/adelebecque/.nuget/packages/",
-      "outputPath": "/home/adelebecque/Project4/Portfolio_subproject_2/API/WebApi/obj/",
+      "outputPath": "/home/adelebecque/Project4/RAWDATA3/WebApi/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/adelebecque/.nuget/NuGet/NuGet.Config"
