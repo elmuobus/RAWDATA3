@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using WebApi.Domain;
 using WebApi.Domain.UserDomain;
 using WebApi.Domain.MovieDomain;
+using WebApi.Domain.SearchDomain;
 
 namespace WebApi
 {
@@ -23,6 +24,9 @@ namespace WebApi
         public DbSet<SearchHistory> SearchHistories { get; set; }
         public DbSet<TitleBookmark> TitleBookmarks { get; set; }
         public DbSet<NameBookmark> NameBookmarks { get; set; }
+
+        public DbSet<BestMatchSearchResult> BestMatchSearchResults { get; set; }
+        public DbSet<ExactMatchSearchResult> ExactMatchSearchResults { get; set; }
 
 
 
@@ -167,7 +171,17 @@ namespace WebApi
             modelBuilder.Entity<NameBookmark>().Property(x => x.Username).HasColumnName("username");
             modelBuilder.Entity<NameBookmark>().Property(x => x.NameId).HasColumnName("nameid");
 
-            
+            //Search Functions
+            modelBuilder.Entity<ExactMatchSearchResult>().HasNoKey();
+            modelBuilder.Entity<ExactMatchSearchResult>().Property(x => x.TitleId).HasColumnName("titleid");
+            modelBuilder.Entity<ExactMatchSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+            modelBuilder.Entity<BestMatchSearchResult>().HasNoKey();
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.TitleId).HasColumnName("titleid");
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.Rank).HasColumnName("rank");
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+
         }
     }
 }

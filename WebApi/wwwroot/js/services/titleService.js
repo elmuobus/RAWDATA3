@@ -22,6 +22,6 @@ define([], () => {
     };
     
     return {
-        getTitles,
+        getTitles
     }
 });
