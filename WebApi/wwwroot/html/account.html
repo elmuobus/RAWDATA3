@@ -1,0 +1,49 @@
+<script type="text/html" id="notConnected">
+  <button type="button" class="login-button" data-bind="click: openLoginModal">Login</button>
+
+  <button type="button" class="register-button" data-bind="click: openSignUpModal">Sign-up</button>
+
+  <!-- ko template: accountModal --><!-- /ko -->
+</script>
+
+<script type="text/html" id="connected">
+  <div class="dropdown">
+    <button class="dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+      <img class="dropdown-toggle-avatar" src="http://thinkingstiff.com/images/matt.jpg"  alt="avatar"/>
+      Jean michel
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="#">Action</a></li>
+      <li><a class="dropdown-item" href="#">Another action</a></li>
+    </ul>
+  </div>
+</script>
+
+<script type="text/html" id="noModal"></script>
+
+<script type="text/html" id="loginModal">
+  <div class="my-modal-background" data-bind="click: closeAccountModal">
+    <form class="my-modal-container" data-bind="event: { click: (_, event) => event.stopPropagation() }">
+      <div class="my-modal-content">
+        <div class="my-modal-title">Login</div>
+        <div class="d-flex flex-column align-items-center">
+          <div class="my-modal-error" data-bind="text: errorMessage"></div>
+          <input class="my-modal-input" placeholder="UserName" data-bind="textInput: userName"/>
+          <input class="my-modal-input" placeholder="Password" type="password" data-bind="textInput: password"/>
+        </div>
+      </div>
+      <div class="my-modal-button-container">
+        <button class="my-modal-button secondary" type="button" data-bind="click: closeAccountModal">Cancel</button>
+        <button class="my-modal-button primary" type="button" data-bind="click: login">Login</button>
+      </div>
+    </form>
+  </div>
+</script>
+
+<script type="text/html" id="signUpModal">
+  <div class="my-modal-background" data-bind="click: closeAccountModal">
+    <div class="my-modal-container" data-bind="click: (event) => console.log('caca'), clickBubble: false">
+      a
+    </div>
+  </div>
+</script>

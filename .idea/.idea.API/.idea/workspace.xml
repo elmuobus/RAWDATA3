@@ -8,48 +8,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a8baf1c-666e-404d-93ff-a799dee69325" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.API/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/account.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/pagination.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/header.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/home.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/pagination.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/accountModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/headerModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/homeModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/paginationModel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/userService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/Controllers/APagesController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Controllers/APagesController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/Controllers/MovieControllers/TitleBasicsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Controllers/MovieControllers/TitleBasicsController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/Services/MovieServices/MovieBusinessLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Services/MovieServices/MovieBusinessLayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/ViewModels/PageViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/ViewModels/PageViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.JsonWebTokens.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.JsonWebTokens.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.Logging.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.Logging.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.Tokens.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/Microsoft.IdentityModel.Tokens.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/System.IdentityModel.Tokens.Jwt.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/System.IdentityModel.Tokens.Jwt.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/WebApi.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/ref/WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/bin/Debug/net5.0/ref/WebApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/WebApi.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/ref/WebApi.dll" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/Debug/net5.0/ref/WebApi.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/WebApi.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/WebApi.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/obj/rider.project.restore.info" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/font.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/bin/Debug/net5.0/CoverletSourceRootsMapping" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/bin/Debug/net5.0/CoverletSourceRootsMapping" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.assets.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/jquery/dist/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/jquery/dist/jquery.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/WebApiTests.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/WebApiTests.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/project.packagespec.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/project.packagespec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/rider.project.restore.info" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/rider.project.restore.info" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +38,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -130,7 +108,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RAW10-Assignment4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../RAWDATA_2021_Livecode8" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="RiderTestRunnerUnitTestingPageId" />
@@ -233,6 +211,8 @@
       <workItem from="1638116069426" duration="5998000" />
       <workItem from="1638127473065" duration="2468000" />
       <workItem from="1638294231871" duration="15548000" />
+      <workItem from="1638387292097" duration="8638000" />
+      <workItem from="1638440114713" duration="6262000" />
     </task>
     <servers />
   </component>
