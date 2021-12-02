@@ -9,16 +9,36 @@
     <link href="css/header.css" rel="stylesheet" />
     <link href="css/home.css" rel="stylesheet" />
     <link href="css/pagination.css" rel="stylesheet" />
+    <link href="css/loading.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
   </head>
   <body>
-    <div data-bind="template: currentView"></div>
+    <div class="container-fluid header pt-5 ps-4 pe-4 poppins">
+      <div class="row">
+        <div class="col-sm-8 d-flex flex-wrap">
+          <img class="logo" src="static/png/SecondSub.png" width="194" height="28" alt="logo" data-bind="click: goHome"/>
 
-    <div data-include="account"></div>
-    <div data-include="header"></div>
-    <div data-include="home"></div>
-    <div data-include="pagination"></div>
-    
+          <!-- ko foreach: menuItems -->
+            <div
+                class="link"
+                data-bind="
+                  text: title,
+                  click: $parent.headerChangeContent,
+                  css: $parent.headerIsActive($data)"
+            >
+            </div>
+          <!-- /ko -->
+        </div>
+        <div
+            class="col-sm-4 d-flex align-items-center justify-content-end"
+            data-bind="component: {name: currentAccountButtonView}"
+        >
+        </div>
+      </div>
+    </div>
+
+    <div data-bind="component: {name: currentView}"></div>
+
     <script data-main="js/main.js" src="node_modules/requirejs/require.js"></script>
   </body>
 </html>

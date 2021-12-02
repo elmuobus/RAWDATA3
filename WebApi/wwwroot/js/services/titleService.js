@@ -13,7 +13,7 @@ define([], () => {
                 Page: page
             },
         };
-            
+        
         url.search = new URLSearchParams(params).toString();
 
         fetch(url.toString())

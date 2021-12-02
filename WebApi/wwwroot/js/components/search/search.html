@@ -1,0 +1,23 @@
+<form class="d-flex search-input" data-bind="submit: triggerSearch">
+  <button type="submit">
+    <i class="bi bi-search"></i>
+  </button>
+  <input type="text" placeholder="Search" aria-label="search input" data-bind="textInput: searchText">
+
+  <div data-bind="template: searchFilterView"></div>
+</form>
+
+<script type="text/html" id="searchPopUpButton">
+  <button class="filter" data-bind="click: openSearchFilter">
+    <i class="bi bi-sliders"></i>
+  </button>
+</script>
+
+<script type="text/html" id="searchPopUp">
+  <div class="search-filter-container">
+    <div class="search-filter-header">FILTER</div>
+  </div>
+  <button class="filter" data-bind="click: closeSearchFilter">
+    <i class="bi bi-sliders"></i>
+  </button>
+</script>

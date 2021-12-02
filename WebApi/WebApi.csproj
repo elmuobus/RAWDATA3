@@ -24,6 +24,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\js\lib\knockout\build\output\knockout-latest.debug.js" />
       <_ContentIncludedByDefault Remove="wwwroot\js\lib\knockout\build\output\knockout-latest.js" />
       <_ContentIncludedByDefault Remove="wwwroot\js\lib\requirejs\require.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\html\account.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\html\header.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\html\home.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\html\pagination.html" />
     </ItemGroup>
 
 </Project>

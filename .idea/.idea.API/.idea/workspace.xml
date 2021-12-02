@@ -8,26 +8,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9a8baf1c-666e-404d-93ff-a799dee69325" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/account.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/pagination.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/account.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/header.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/html/pagination.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/accountModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/headerModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/homeModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/model/paginationModel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/userService.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/loading.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/connected/connected.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/connected/connected.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/disconnected/disconnected.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/disconnected/disconnected.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/loading/loading.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/loading/loading.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/pagination/pagination.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/pagination/pagination.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/search/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/search/search.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/myEventListener.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/static/gif/loading.gif" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/font.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/html/account.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/html/header.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/html/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/home/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/html/pagination.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/model/accountModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/model/headerModel.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/model/homeModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/model/paginationModel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/.yarn-integrity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/jquery/dist/jquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/node_modules/jquery/dist/jquery.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/WebApiTests/obj/Debug/net5.0/WebApiTests.csproj.AssemblyReference.cache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +49,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -212,7 +223,7 @@
       <workItem from="1638127473065" duration="2468000" />
       <workItem from="1638294231871" duration="15548000" />
       <workItem from="1638387292097" duration="8638000" />
-      <workItem from="1638440114713" duration="6262000" />
+      <workItem from="1638440114713" duration="19250000" />
     </task>
     <servers />
   </component>
