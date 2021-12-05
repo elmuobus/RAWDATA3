@@ -13,12 +13,23 @@ namespace WebApi.Services.SearchServices
         {
             _ctx = new PortfolioContext(); //Had connectionString earlier as tests depended on test environment in IDE being able to recognize/save .env variables
         }
-        /*
+        
         public List<SimpleSearchResult> SimpleSearch(string title, string user)
         {
+            Console.WriteLine("Search Results from Structured Actor Search");
+            
+            var result = _ctx.SimpleSearchResults.FromSqlInterpolated($"select * from structured_actors_search({title}, {user})");
 
+
+            List<SimpleSearchResult> searchResultsSimpleSearch = new List<SimpleSearchResult>();
+
+            foreach (var searchResult in result) //Cannot handle null values. Added question mark, so okay. Now does not print properly.
+            {
+                Console.WriteLine($"{searchResult.TitleId}, {searchResult.PrimaryTitle}"); //only shows firsts letters for some reason. Just had to change from char to string in object.
+                searchResultsSimpleSearch.Add(searchResult);
+            }
+            return searchResultsSimpleSearch;
         }
-        */
 
         public List<ExactMatchSearchResult> ExactMatchSearch(int nbResult, params string[] words) 
         {

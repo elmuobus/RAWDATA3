@@ -37,14 +37,28 @@ namespace WebApi.Controllers.SearchControllers
             var bestMatches = _searchBusinessLayer.BestMatchSearch(searchStrings);
             return Ok(bestMatches);
         }
-        /*
+        
         [HttpGet("structuredactorsearch")]
         public IActionResult StructuredActorSearch(string title, string plot, string characters, string personNames)
         {
-            var actors = _searchBusinessLayer.BestMatchSearch(searchStrings); //Maybe need to change return type in sql function table to varchar, if that issue still occurs on newer DB (that i dont have)
-            return Ok(bestMatches);
+            var actors = _searchBusinessLayer.StructuredActorSearch(title, plot, characters, personNames); //Maybe need to change return type in sql function table to varchar, if that issue still occurs on newer DB (that i dont have)
+            return Ok(actors);
         }
-        */
+
+        [HttpGet("structuredstringsearch")]
+        public IActionResult StructuredStringSearch(string title, string plot, string characters, string personNames)//Maybe new name for clarity
+        {
+            var titles = _searchBusinessLayer.StructuredActorSearch(title, plot, characters, personNames); //Maybe need to change return type in sql function table to varchar, if that issue still occurs on newer DB (that i dont have)
+            return Ok(titles);
+        }
+
+        [HttpGet("simplesearch")] //AKA string_search
+        public IActionResult SimpleSearch(string title, string user)//Maybe new name for clarity
+        {
+            var titles = _searchBusinessLayer.SimpleSearch(title, user); //Maybe need to change return type in sql function table to varchar, if that issue still occurs on newer DB (that i dont have)
+            return Ok(titles);
+        }
+
 
     }
 }

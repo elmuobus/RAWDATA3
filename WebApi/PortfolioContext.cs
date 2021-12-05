@@ -37,6 +37,7 @@ namespace WebApi
         public DbSet<PopularActorsInMovieSearchResult> PopularActorsInMovieSearchResults { get; set; }
         //public RatingSearchResult RatingSearchResults { get; set; }
         public DbSet<PopularActorsCoPlayersSearchResult> PopularActorsCoPlayersSearchResults { get; set; }
+        public DbSet<SimpleSearchResult> SimpleSearchResults { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -221,6 +222,9 @@ namespace WebApi
             modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().Property(x => x.PrimaryName).HasColumnName("primaryname");
             modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().Property(x => x.Rating).HasColumnName("rating");
 
+            modelBuilder.Entity<SimpleSearchResult>().HasNoKey();
+            modelBuilder.Entity<SimpleSearchResult>().Property(x => x.TitleId).HasColumnName("id");
+            modelBuilder.Entity<SimpleSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("title");
 
 
 
