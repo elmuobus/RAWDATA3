@@ -4,6 +4,8 @@ using Microsoft.Extensions.Logging;
 using WebApi.Domain;
 using WebApi.Domain.UserDomain;
 using WebApi.Domain.MovieDomain;
+using WebApi.Domain.SearchDomain;
+using WebApi.Domain.SiteFunctionsDomain;
 
 namespace WebApi
 {
@@ -24,8 +26,18 @@ namespace WebApi
         public DbSet<TitleBookmark> TitleBookmarks { get; set; }
         public DbSet<NameBookmark> NameBookmarks { get; set; }
 
-
-
+        //Search
+        public DbSet<BestMatchSearchResult> BestMatchSearchResults { get; set; }
+        public DbSet<ExactMatchSearchResult> ExactMatchSearchResults { get; set; }
+        //Site functions
+        public DbSet<RecommendedSearchResult> RecommendedSearchResults { get; set; }
+        public DbSet<StructuredActorSearchResult> StructuredActorSearchResults { get; set; }
+        public DbSet<StructuredStringSearchResult> StructuredStringSearchResults { get; set; }
+        public DbSet<CoPlayersSearchResult> CoPlayersSearchResults { get; set; }
+        public DbSet<PopularActorsInMovieSearchResult> PopularActorsInMovieSearchResults { get; set; }
+        //public RatingSearchResult RatingSearchResults { get; set; }
+        public DbSet<PopularActorsCoPlayersSearchResult> PopularActorsCoPlayersSearchResults { get; set; }
+        public DbSet<SimpleSearchResult> SimpleSearchResults { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
@@ -167,7 +179,55 @@ namespace WebApi
             modelBuilder.Entity<NameBookmark>().Property(x => x.Username).HasColumnName("username");
             modelBuilder.Entity<NameBookmark>().Property(x => x.NameId).HasColumnName("nameid");
 
-            
+            //Search Functions
+            modelBuilder.Entity<ExactMatchSearchResult>().HasNoKey();
+            modelBuilder.Entity<ExactMatchSearchResult>().Property(x => x.TitleId).HasColumnName("titleid");
+            modelBuilder.Entity<ExactMatchSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+            modelBuilder.Entity<BestMatchSearchResult>().HasNoKey();
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.TitleId).HasColumnName("titleid");
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.Rank).HasColumnName("rank");
+            modelBuilder.Entity<BestMatchSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+            modelBuilder.Entity<StructuredStringSearchResult>().HasNoKey();
+            modelBuilder.Entity<StructuredStringSearchResult>().Property(x => x.TitleId).HasColumnName("titleid");
+            modelBuilder.Entity<StructuredStringSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+            modelBuilder.Entity<StructuredActorSearchResult>().HasNoKey();
+            modelBuilder.Entity<StructuredActorSearchResult>().Property(x => x.NameId).HasColumnName("nameid");
+            modelBuilder.Entity<StructuredActorSearchResult>().Property(x => x.PrimaryName).HasColumnName("primaryname");
+
+
+            //Site Functions
+            modelBuilder.Entity<RecommendedSearchResult>().HasNoKey();
+            modelBuilder.Entity<RecommendedSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
+
+            modelBuilder.Entity<CoPlayersSearchResult>().HasNoKey();
+            modelBuilder.Entity<CoPlayersSearchResult>().Property(x => x.CoPlayerId).HasColumnName("co_playerid");
+            modelBuilder.Entity<CoPlayersSearchResult>().Property(x => x.PrimaryName).HasColumnName("primaryname");
+            modelBuilder.Entity<CoPlayersSearchResult>().Property(x => x.Frequency).HasColumnName("frequency");
+
+            modelBuilder.Entity<PopularActorsInMovieSearchResult>().HasNoKey();
+            modelBuilder.Entity<PopularActorsInMovieSearchResult>().Property(x => x.Id).HasColumnName("id");
+            modelBuilder.Entity<PopularActorsInMovieSearchResult>().Property(x => x.Primaryname).HasColumnName("primaryname");
+            modelBuilder.Entity<PopularActorsInMovieSearchResult>().Property(x => x.Rating).HasColumnName("rating");
+
+            /*
+            modelBuilder.Entity<RatingSearchResult>().HasNoKey();
+            modelBuilder.Entity<RatingSearchResult>().Property(x => x.Rating).HasColumnName("res"); //Need to map to table instead
+            */
+
+            modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().HasNoKey();
+            modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().Property(x => x.Id).HasColumnName("id");
+            modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().Property(x => x.PrimaryName).HasColumnName("primaryname");
+            modelBuilder.Entity<PopularActorsCoPlayersSearchResult>().Property(x => x.Rating).HasColumnName("rating");
+
+            modelBuilder.Entity<SimpleSearchResult>().HasNoKey();
+            modelBuilder.Entity<SimpleSearchResult>().Property(x => x.TitleId).HasColumnName("id");
+            modelBuilder.Entity<SimpleSearchResult>().Property(x => x.PrimaryTitle).HasColumnName("title");
+
+
+
         }
     }
 }

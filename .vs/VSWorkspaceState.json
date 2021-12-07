@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\WebApi",
+    "\\WebApi\\Domain",
+    "\\WebApi\\Domain\\SearchDomain",
+    "\\WebApi\\Services",
+    "\\WebApi\\Services\\MovieServices"
+  ],
+  "SelectedNode": "\\WebApi\\Domain\\SearchDomain\\ExactMatchSearchResult.cs",
+  "PreviewInSolutionExplorer": false
+}

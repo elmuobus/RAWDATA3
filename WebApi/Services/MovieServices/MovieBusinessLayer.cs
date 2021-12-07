@@ -62,6 +62,7 @@ namespace WebApi.Services.MovieServices
         public IList<TitleBasics> GetTitleBasics(int page, int pageSize, string searchText)
         {
             return _ctx.TitleBasics
+                //.Where(x => x.IsAdult)
                 .Include(x => x.OmdbData)
                 .Include(x => x.TitleRatings)
                 .Where(x => x.OriginalTitle.Contains(searchText))
