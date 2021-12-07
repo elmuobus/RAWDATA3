@@ -4,23 +4,19 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using WebApi.Attributes;
-using WebApi.Domain.MovieDomain;
 using WebApi.Domain.UserDomain;
 using WebApi.Services.UserServices;
-using WebApi.Utils;
 using WebApi.ViewModels;
-using WebApi.ViewModels.ListViewModel;
-using WebApi.ViewModels.ListViewModel.Movie;
 using WebApi.ViewModels.ListViewModel.User;
 
 namespace WebApi.Controllers.UserControllers
 {
     [Authorization]
     [ApiController]
-    [Route(BaseUserRoute)]
+    [Route(UserRoute)]
     public class NameBookmarksController: APagesController
     {
-        private const string BaseUserRoute = "api/users/namebookmarks";
+        private const string UserRoute = "api/users/namebookmarks";
         private readonly UserBusinessLayer _userService;
         private readonly IMapper _mapper;
 
@@ -78,7 +74,7 @@ namespace WebApi.Controllers.UserControllers
                     throw new ArgumentException("User not exist");
                 var rating = _userService.CreateNameBookmark(user.Username, dto.NameId);
                 
-                return Created($"{BaseUserRoute}/{rating.NameId}", rating);
+                return Created($"{UserRoute}/{rating.NameId}", rating);
             }
             catch (Exception)
             {

@@ -1,4 +1,4 @@
-define(['knockout', 'userService', 'myEventListener'], function (ko, us, myEventListener) {
+define(['knockout', 'userService', 'storeService', 'myEventListener'], function (ko, us, store, myEventListener) {
   return function (_) {
     let accountModal = ko.observable("noModal");
 
@@ -16,23 +16,32 @@ define(['knockout', 'userService', 'myEventListener'], function (ko, us, myEvent
     let userName = ko.observable("");
 
     let password = ko.observable("");
+    
+    let rePassword = ko.observable("");
 
     let errorMessage = ko.observable("");
 
-    let token = ko.observable();
-
     let login = () => {
-      let user = {
-        username: userName(),
-        password: password(),
+      const name = userName();
+      const pw = password();
+
+      if (!name || !pw) {
+        errorMessage("Not all field fill");
+        return;
       }
+
       errorMessage("");
+
+      const user = {
+        username: name,
+        password: pw,
+      }
 
       us.login(user, data => {
         if (data.token) {
           userName("");
           password("");
-          token(data.token)
+          store.auth.dispatch({ type: "LOGIN", payload: data });
           closeAccountModal();
           connected();
         } else {
@@ -43,21 +52,34 @@ define(['knockout', 'userService', 'myEventListener'], function (ko, us, myEvent
     };
 
     let register = () => {
-      let user = {
-        username: userName(),
-        password: password(),
+      const name = userName();
+      const pw = password();
+      const rePw = rePassword();
+      
+      if (!name || !pw || !rePw) {
+        errorMessage("Not all field fill");
+        return;
       }
+
+      if (pw !== rePw) {
+        errorMessage("Not the same password");
+        return;        
+      }
+
       errorMessage("");
 
-      us.login(user, data => {
-        if (data.token) {
+      const user = {
+        username: name,
+        password: pw,
+      }
+
+      us.register(user, data => {
+        if (data.username) {
           userName("");
           password("");
-          token(data.token)
           closeAccountModal();
-          connected();
         } else {
-          errorMessage("Your username and/or password is invalid");
+          errorMessage("Username already used");
           password("");
         }
       })
@@ -68,12 +90,14 @@ define(['knockout', 'userService', 'myEventListener'], function (ko, us, myEvent
     return {
       userName,
       password,
+      rePassword,
       errorMessage,
       closeAccountModal,
       openLoginModal,
       openSignUpModal,
       accountModal,
       login,
+      register,
     };
   };
 });

@@ -4,17 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using WebApi.Domain.MovieDomain;
 using WebApi.Services.MovieServices;
-using WebApi.ViewModels;
-using WebApi.ViewModels.ListViewModel;
 using WebApi.ViewModels.ListViewModel.Movie;
 
 namespace WebApi.Controllers.MovieControllers
 {
     [ApiController]
-    [Route(BaseTitleBasicsRoute)]
+    [Route(TitleBasicsRoute)]
     public class TitleBasicsController : APagesController
     {
-        private const string BaseTitleBasicsRoute = "api/title/basics";
+        private const string TitleBasicsRoute = "api/title/basics";
         private readonly MovieBusinessLayer _movieBusinessLayer;
         private readonly IMapper _mapper;
 
@@ -58,8 +56,8 @@ namespace WebApi.Controllers.MovieControllers
         private TitleBasicsListViewModel CreateTitleBasicsListViewModel(TitleBasics titleBasics)
         {
             var model = _mapper.Map<TitleBasicsListViewModel>(titleBasics);
-            model.Poster = titleBasics.OmdbData.Poster;
-            model.Rating = titleBasics.TitleRatings.AverageRating; 
+            model.Poster = titleBasics.OmdbData?.Poster;
+            model.Rating = titleBasics.TitleRatings?.AverageRating; 
             model.Url = GetUrlObject(nameof(GetTitleBasic), new {titleBasics.Id});
             return model;
         }

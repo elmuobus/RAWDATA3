@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using WebApi.Domain.UserDomain;
 
 namespace WebApi.Services.UserServices
@@ -273,6 +274,10 @@ namespace WebApi.Services.UserServices
         {
             return _ctx.TitleBookmarks
                 .Where(x => x.Username == username)
+                .Include(x => x.TitleBasics)
+                    .ThenInclude(x => x.OmdbData)
+                .Include(x => x.TitleBasics)
+                    .ThenInclude(x => x.TitleRatings)
                 .Skip(page * pageSize).Take(pageSize)
                 .ToList();
         }

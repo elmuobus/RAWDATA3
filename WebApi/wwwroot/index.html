@@ -10,13 +10,14 @@
     <link href="css/home.css" rel="stylesheet" />
     <link href="css/pagination.css" rel="stylesheet" />
     <link href="css/loading.css" rel="stylesheet" />
+    <link href="css/accountInfo.css" rel="stylesheet" />
     <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet' />
   </head>
   <body>
     <div class="container-fluid header pt-5 ps-4 pe-4 poppins">
       <div class="row">
         <div class="col-sm-8 d-flex flex-wrap">
-          <img class="logo" src="static/png/SecondSub.png" width="194" height="28" alt="logo" data-bind="click: goHome"/>
+          <img class="logo" src="static/images/SecondSub.png" width="194" height="28" alt="logo" data-bind="click: goHome"/>
 
           <!-- ko foreach: menuItems -->
             <div
@@ -36,8 +37,10 @@
         </div>
       </div>
     </div>
-
+    
     <div data-bind="component: {name: currentView}"></div>
+
+    <!--<div data-bind='component: "loading"'></div>-->
 
     <script data-main="js/main.js" src="node_modules/requirejs/require.js"></script>
   </body>

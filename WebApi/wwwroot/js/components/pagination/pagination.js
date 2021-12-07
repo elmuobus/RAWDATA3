@@ -1,7 +1,15 @@
-define(['knockout', 'myEventListener'], function (ko, myEventListener) {
+define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myEventListener) {
   return function (_) {
-    let pageSize = ko.observable(20);
-    let currentPageNumber = ko.observable(5);
+    const init = () => {
+      const { currentPage, pageSize: size, totalPage: total } = store.titles.getState();
+      
+      pageSize(size);
+      currentPageNumber(currentPage);
+      totalPages(total);
+    } 
+    
+    let pageSize = ko.observable();
+    let currentPageNumber = ko.observable();
     let totalPages = ko.observable();
     let pages = ko.observableArray([]);
     
@@ -50,11 +58,16 @@ define(['knockout', 'myEventListener'], function (ko, myEventListener) {
       pages(Array.from({length: (afterPages - beforePages) + 1}, (_, i) => i + beforePages));
     }
 
-    const changePage = () => myEventListener.trigger("changeCurrentPage", currentPageNumber());
+    const changePage = () => {
+      store.titles.dispatch({type: "PAGINATION", payload: currentPageNumber()});
+      myEventListener.trigger("changeCurrentPage");
+    };
 
-    myEventListener.subscribe("changePagination", ({ current, total }) => {
-      currentPageNumber(current);
-      totalPages(total);
+    init();
+    
+    myEventListener.subscribe("changePagination", () => {
+      const { totalPage } = store.titles.getState();
+      totalPages(totalPage);
       initPageArray();
     });
 

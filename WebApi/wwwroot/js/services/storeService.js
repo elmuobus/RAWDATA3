@@ -1,31 +1,70 @@
 define(["redux"], (redux) => {
-  const reducer = (state = {}, action) => {
+  
+  //auth store
+  
+  const defaultAuthConfig = {
+    username: "",
+    token: null,
+    picture: "static/images/noProfileImage.jpg"
+  };
+  
+  const authReducer = (state = defaultAuthConfig, action) => {
     switch (action.type) {
       case "LOGIN":
-        state.token = action.payload;
+        state = {
+          ...state,
+          ...action.payload //{ username, token }
+        };
         break;
       case "LOGOUT":
         state.token = null;
         break;
       case "DELETE":
-        state.token = null;
+        state = {};
         break;
     }
     return state;
   }
   
-  const store = redux.createStore(reducer);
+  const auth = redux.createStore(authReducer);
 
-  const login = (token) => store.dispatch({ type: "LOGIN", payload: token });
-
-  const logout = () => store.dispatch({ type: "LOGOUT" });
-
-  const deleteProfile = () => store.dispatch({ type: "DELETE" });
+  //search store
   
+  const defaultTitlesConfig = {
+    searchText: "",
+    currentPage: 1,
+    pageSize: 20,
+    totalPage: 0,
+  }
+
+  const titlesReducer = (state = defaultTitlesConfig, action) => {
+    switch (action.type) {
+      case "SEARCH":
+        state = {
+          ...state,
+          searchText: action.payload
+        };
+        break;
+      case "PAGINATION":
+        state = {
+          ...state,
+          currentPage: action.payload
+        };
+        break;
+      case "RESULT":
+        state = {
+          ...state,
+          totalPage: action.payload
+        };
+        break;
+    }
+    return state;
+  }
+
+  const titles = redux.createStore(titlesReducer);
+
   return {
-    store,
-    login,
-    logout,
-    deleteProfile,
+    auth,
+    titles,
   }
 });

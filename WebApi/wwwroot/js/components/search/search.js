@@ -1,4 +1,4 @@
-define(['knockout', 'myEventListener'], function (ko, myEventListener) {
+define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myEventListener) {
   return function (_) {
     let searchText = ko.observable("");
 
@@ -8,8 +8,11 @@ define(['knockout', 'myEventListener'], function (ko, myEventListener) {
 
     let closeSearchFilter = () => searchFilterView("searchPopUpButton");
     
-    let triggerSearch = () => myEventListener.trigger("searching", searchText());
-
+    let triggerSearch = () => {
+      store.titles.dispatch({ type: "SEARCH" ,payload: searchText() });
+      myEventListener.trigger("searching");
+    }
+    
     return {
       searchText,
       searchFilterView,

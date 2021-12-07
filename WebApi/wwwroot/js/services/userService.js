@@ -1,7 +1,6 @@
 define([], () => {
-
     let login = (user, callback) => {
-        let param = {
+        let options = {
             method: "POST",
             body: JSON.stringify(user),
             headers: {
@@ -9,14 +8,64 @@ define([], () => {
             }
         }
         
-        console.log("je suis bloqué")
-
-        fetch("api/users/login", param)
+        fetch("api/users/login", options)
             .then(response => response.json())
             .then(json => callback(json));
     };
 
+    let register = (user, callback) => {
+        let options = {
+            method: "POST",
+            body: JSON.stringify(user),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+
+        fetch("api/users/register", options)
+          .then(response => response.json())
+          .then(json => callback(json));
+    };
+    
+    let getTitlesBookMark = (token, page, pageSize, callback) => {
+        const  url = new URL("http://localhost:5002/api/users/titlebookmarks");
+        let params = {
+            ...(pageSize) && {
+                PageSize: pageSize
+            },
+            ...(page) && {
+                Page: page
+            },
+        };
+        let options = {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+
+        url.search = new URLSearchParams(params).toString();
+
+        fetch(url.toString(), options)
+          .then(response => response.json())
+          .then(json => callback(json));
+    };
+    
+    let delProfile = (token, callback) => {
+        let options = {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+
+        fetch("api/users", options)
+          .then(response => console.log(response))
+    };
+
     return {
         login,
+        register,
+        delProfile,
+        getTitlesBookMark,
     }
 });

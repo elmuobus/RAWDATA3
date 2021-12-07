@@ -2,7 +2,6 @@ using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -15,10 +14,10 @@ using WebApi.ViewModels;
 namespace WebApi.Controllers.UserControllers
 {
     [ApiController]
-    [Route(BaseUserRoute)]
+    [Route(UserRoute)]
     public class UsersController: ControllerBase
     {
-        private const string BaseUserRoute = "api/users";
+        private const string UserRoute = "api/users";
         private readonly UserBusinessLayer _userService;
         private readonly ConfigurationUtils _configuration;
 

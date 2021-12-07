@@ -13,7 +13,7 @@
     let goHome = () => {
       currentView("home");  
     };
-
+    
     let headerChangeContent = menuItem => {
         currentView(menuItem.component)
     };

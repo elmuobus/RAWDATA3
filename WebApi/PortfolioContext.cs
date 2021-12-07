@@ -46,25 +46,25 @@ namespace WebApi
             modelBuilder.Entity<TitleBasics>().ToTable("titlebasics", "movie");
             modelBuilder.Entity<TitleBasics>()
                 .HasOne(t => t.OmdbData).WithOne(o => o.TitleBasics)
-                .HasForeignKey<TitleBasics>(t => t.Id);
+                .HasForeignKey<TitleBasics>(t => t.Id).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasMany(t => t.ListTitleAkas).WithOne(o => o.TitleBasics)
-                .HasForeignKey(t => t.TitleId);
+                .HasForeignKey(t => t.TitleId).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasMany(t => t.Wis).WithOne(o => o.TitleBasics)
-                .HasForeignKey(t => t.TitleId);
+                .HasForeignKey(t => t.TitleId).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasOne(t => t.TitleRatings).WithOne(o => o.TitleBasics)
-                .HasForeignKey<TitleBasics>(t => t.Id);
+                .HasForeignKey<TitleBasics>(t => t.Id).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasOne(t => t.TitleCrew).WithOne(o => o.TitleBasics)
-                .HasForeignKey<TitleBasics>(t => t.Id);
+                .HasForeignKey<TitleBasics>(t => t.Id).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasMany(t => t.ListTitlePrincipals).WithOne(o => o.TitleBasics)
-                .HasForeignKey(t => t.TitleId);
+                .HasForeignKey(t => t.TitleId).IsRequired(false);
             modelBuilder.Entity<TitleBasics>()
                 .HasMany(t => t.TitleEpisodes).WithOne(o => o.TitleBasics)
-                .HasForeignKey(t => t.TitleId);
+                .HasForeignKey(t => t.TitleId).IsRequired(false);
             modelBuilder.Entity<TitleBasics>().Property(x => x.Id).HasColumnName("titleid");
             modelBuilder.Entity<TitleBasics>().Property(x => x.TitleType).HasColumnName("titletype");
             modelBuilder.Entity<TitleBasics>().Property(x => x.PrimaryTitle).HasColumnName("primarytitle");
@@ -127,6 +127,9 @@ namespace WebApi
             modelBuilder.Entity<Wi>().Property(x => x.Lexeme).HasColumnName("lexeme");
 
             modelBuilder.Entity<OmdbData>().ToTable("omdb_data", "movie");
+            modelBuilder.Entity<OmdbData>()
+                .HasOne(t => t.TitleBasics).WithOne(o => o.OmdbData)
+                .HasForeignKey<TitleBasics>(t => t.Id);
             modelBuilder.Entity<OmdbData>().Property(x => x.Id).HasColumnName("titleid");
             modelBuilder.Entity<OmdbData>().Property(x => x.Poster).HasColumnName("poster");
             modelBuilder.Entity<OmdbData>().Property(x => x.Awards).HasColumnName("awards");

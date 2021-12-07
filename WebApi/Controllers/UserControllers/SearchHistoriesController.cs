@@ -15,10 +15,10 @@ namespace WebApi.Controllers.UserControllers
 {
     [Authorization]
     [ApiController]
-    [Route(BaseUserRoute)]
+    [Route(UserRoute)]
     public class SearchHistoriesController: APagesController
     {
-        private const string BaseUserRoute = "api/users/searchhistories";
+        private const string UserRoute = "api/users/searchhistories";
         private readonly UserBusinessLayer _userService;
         private readonly IMapper _mapper;
 
@@ -76,7 +76,7 @@ namespace WebApi.Controllers.UserControllers
                     throw new ArgumentException("User not exist");
                 var rating = _userService.CreateSearchHistory(user.Username, dto.SearchKey);
                 
-                return Created($"{BaseUserRoute}/{rating.SearchKey}", rating);
+                return Created($"{UserRoute}/{rating.SearchKey}", rating);
             }
             catch (Exception)
             {

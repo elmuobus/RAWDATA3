@@ -4,17 +4,15 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using WebApi.Domain.MovieDomain;
 using WebApi.Services.MovieServices;
-using WebApi.ViewModels;
-using WebApi.ViewModels.ListViewModel;
 using WebApi.ViewModels.ListViewModel.Movie;
 
 namespace WebApi.Controllers.MovieControllers
 {
     [ApiController]
-    [Route(BaseTitleAkasRoute)]
+    [Route(TitleAkasRoute)]
     public class TitleAkasController : APagesController
     {
-        private const string BaseTitleAkasRoute = "api/title/akas";
+        private const string TitleAkasRoute = "api/title/akas";
         private readonly MovieBusinessLayer _movieBusinessLayer;
         private readonly IMapper _mapper;
 

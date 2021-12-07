@@ -1,10 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div class="profile-header-container">
+  <div class="profile-header-img-container">
+    <img class="profile-header-img" alt="profile-picture" data-bind="attr:{src: picture}" />
+    <div class="profile-header-img-hover">
+      <i class="bi bi-camera"></i>
+      Choose a photo
+    </div>
+  </div>
+  <div class="profile-header-content">
+    <div class="d-flex align-items-center">
+      PROFILE
+      <button class="profile-header-setting"><i class="ps-2 bi bi-gear-fill"></i></button>
+    </div>
+    <div class="profile-header-username" data-bind="text: userName"></div>
+    <div class="profile-header-infos">
+      <div class="profile-header-info">
+        <div data-bind="text: namesBookmark"></div>
+        <div>Name bookmark</div>
+      </div>
+      <div class="profile-header-info">
+        <div data-bind="text: titlesBookmark"></div>
+        <div>Title bookmark</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="profile-container">
+  <div class="profile-container-item">
+    Title bookmark list
+    <button class="profile-container-item-button" data-bind="click: goTitlesBookmark">
+      <i class="bi bi-arrow-right"></i>
+    </button>
+  </div>
+  <div class="profile-container-item">
+    Name bookmark list
+    <button class="profile-container-item-button" data-bind="click: goNamesBookmark">
+      <i class="bi bi-arrow-right"></i>
+    </button>
+  </div>
+</div>
+
+<button class="delete-account" data-bind="click: deleteProfileConfirmation">
+  Delete account
+</button>
+
+<!-- ko template: profileModal --><!-- /ko -->
+
+<script type="text/html" id="noModal"></script>
+
+<script type="text/html" id="deleteAccountModal">
+  <div class="my-modal-background" data-bind="click: closeAccountModal">
+    <form class="my-modal-container" data-bind="event: { click: (_, event) => event.stopPropagation() }">
+      <div class="my-modal-content">
+        <div class="my-modal-logo"><i class="bi bi-exclamation-lg"></i></div>
+        <div class="my-modal-title">Are you sure?</div>
+        <div class="d-flex flex-column align-items-center">
+          You’ll permanently lose your profile & options.
+        </div>
+      </div>
+      <div class="my-modal-button-container">
+        <button class="my-modal-button secondary" type="button" data-bind="click: closeAccountModal">Cancel</button>
+        <button class="my-modal-button primary" type="button" data-bind="click: deleteProfile">Delete</button>
+      </div>
+    </form>
+  </div>
+</script>

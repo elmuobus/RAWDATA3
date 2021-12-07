@@ -1,14 +1,11 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using WebApi.Attributes;
 using WebApi.Domain.UserDomain;
 using WebApi.Services.UserServices;
-using WebApi.Utils;
 using WebApi.ViewModels;
 using WebApi.ViewModels.ListViewModel.User;
 
@@ -16,10 +13,10 @@ namespace WebApi.Controllers.UserControllers
 {
     [Authorization]
     [ApiController]
-    [Route(BaseUserRoute)]
+    [Route(UserRoute)]
     public class TitleBookmarksController: APagesController
     {
-        private const string BaseUserRoute = "api/users/titlebookmarks";
+        private const string UserRoute = "api/users/titlebookmarks";
         private readonly UserBusinessLayer _userService;
         private readonly IMapper _mapper;
 
@@ -36,6 +33,9 @@ namespace WebApi.Controllers.UserControllers
             {
                 if (Request.HttpContext.Items["User"] is not User user)
                     throw new ArgumentException("User not exist");
+
+                Console.WriteLine(_userService.GetTitleBookmarks(user.Username, pagesQueryString.Page, pagesQueryString.PageSize).Count);
+                
                 var titleBookmarks = _userService
                     .GetTitleBookmarks(user.Username, pagesQueryString.Page, pagesQueryString.PageSize)
                     .Select(CreateTitleBookmarkListViewModel);
@@ -77,7 +77,7 @@ namespace WebApi.Controllers.UserControllers
                     throw new ArgumentException("User not exist");
                 var rating = _userService.CreateTitleBookmark(user.Username, dto.TitleId);
                 
-                return Created($"{BaseUserRoute}/{rating.TitleId}", rating);
+                return Created($"{UserRoute}/{rating.TitleId}", rating);
             }
             catch (Exception)
             {
@@ -107,6 +107,10 @@ namespace WebApi.Controllers.UserControllers
         private TitleBookmarkListViewModel CreateTitleBookmarkListViewModel(TitleBookmark titleBookmark)
         {
             var model = _mapper.Map<TitleBookmarkListViewModel>(titleBookmark);
+            model.OriginalTitle = titleBookmark.TitleBasics.OriginalTitle;
+            model.Genres = titleBookmark.TitleBasics.Genres;
+            model.Poster = titleBookmark.TitleBasics.OmdbData?.Poster;
+            model.Rating = titleBookmark.TitleBasics.TitleRatings?.AverageRating;
             model.Url = GetUrlObject(nameof(GetTitleBookmark), new {titleBookmark.TitleId});
             return model;
         }

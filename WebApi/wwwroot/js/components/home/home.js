@@ -1,23 +1,18 @@
-define(['knockout', 'titleService', 'myEventListener'], function (ko, ts, myEventListener) {
+define(['knockout', 'titleService', 'storeService', 'myEventListener'], function (ko, ts, store, myEventListener) {
   return function (_) {
     let titles = ko.observableArray([]);
     
-    let searchText = "";
-    let currentPageNumber = 1;
-    let pageSize = 20;
-    
     let getTitles = () => {
+      const { searchText, currentPage, pageSize } = store.titles.getState();
       ts.getTitles(
         searchText,
-        currentPageNumber - 1,
+        currentPage - 1,
         pageSize,
         data => {
           titles(data.items);
           myEventListener.trigger("closeLoading");
-          myEventListener.trigger("changePagination", ({
-            current: data.current + 1,
-            total: data.totalPage + 1,
-          }))
+          store.titles.dispatch({type: "RESULT", payload: data.totalPage + 1})
+          myEventListener.trigger("changePagination")
         },
       );
     };
@@ -26,15 +21,9 @@ define(['knockout', 'titleService', 'myEventListener'], function (ko, ts, myEven
       getTitles();
     }, 100);
     
-    myEventListener.subscribe("searching", (text) => {
-      searchText = text;
-      getTitles();
-    });
+    myEventListener.subscribe("searching", () => getTitles());
 
-    myEventListener.subscribe("changeCurrentPage", (page) => {
-      currentPageNumber = page;
-      getTitles();
-    });
+    myEventListener.subscribe("changeCurrentPage", () => getTitles());
 
     return {
       titles,

@@ -1,0 +1,147 @@
+.profile-header-container {
+    display: flex;
+    align-items: center;
+    margin: 35px 0;
+    width: 100vw;
+    height: 270px;
+    background: linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    padding: 32px;
+}
+
+.profile-header-img-container {
+    margin: 0 50px;
+    height: 210px;
+    width: 210px;
+    position: relative;
+}
+
+.profile-header-img {
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    background-color: darkslategrey;
+    object-fit: cover;
+}
+
+.profile-header-img-hover {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #F2F2F2;
+}
+
+.profile-header-img-hover i {
+    font-size: 45px;
+    line-height: 30px;
+}
+
+.profile-header-img-hover:hover {
+    opacity: 100;
+}
+
+.profile-header-content {
+    height: 190px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.profile-header-setting {
+    color: inherit;
+    background-color: transparent;
+    border: none;
+}
+
+.profile-header-username {
+    font-size: 64px;
+}
+
+.profile-header-infos {
+    font-size: 16px;
+    display: flex;
+    width: 280px;
+    justify-content: space-between;
+}
+
+.profile-header-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 18px;
+}
+
+.profile-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-container-item {
+    position: relative;
+    margin-bottom: 20px;
+    height: 60px;
+    width: 472px;
+    background-color: #3333339e;
+    border-radius: 60px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    color: #E0E0E0;
+    padding-left: 25px;
+}
+
+.profile-container-item-button {
+    position: absolute;
+    margin-right: 8px;
+    right: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background-color: #F2F2F2;
+    color: #121212;
+    border: none;
+    font-size: 30px;
+}
+
+.delete-account {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 45px;
+    bottom: 50px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #D81F26;
+}
+
+.my-modal-logo {
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    background-color: #D81F26;
+    color: #F9F9F9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 90px;
+}

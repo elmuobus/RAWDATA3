@@ -1,26 +1,22 @@
 using System;
 using System.Linq;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using WebApi.Attributes;
-using WebApi.Domain.MovieDomain;
 using WebApi.Domain.UserDomain;
 using WebApi.Services.UserServices;
-using WebApi.Utils;
 using WebApi.ViewModels;
-using WebApi.ViewModels.ListViewModel.Movie;
 using WebApi.ViewModels.ListViewModel.User;
 
 namespace WebApi.Controllers.UserControllers
 {
     [Authorization]
     [ApiController]
-    [Route(BaseUserRoute)]
+    [Route(UserRoute)]
     public class RatingsController: APagesController
     {
-        private const string BaseUserRoute = "api/users/ratings";
+        private const string UserRoute = "api/users/ratings";
         private readonly UserBusinessLayer _userService;
         private readonly IMapper _mapper;
 
@@ -78,7 +74,7 @@ namespace WebApi.Controllers.UserControllers
                     throw new ArgumentException("User not exist");
                 var rating = _userService.CreateRating(user.Username, dto.TitleId, dto.Rate, dto.Comment);
                 
-                return Created($"{BaseUserRoute}/{rating.TitleId}", rating);
+                return Created($"{UserRoute}/{rating.TitleId}", rating);
             }
             catch (Exception)
             {
