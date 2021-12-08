@@ -92,12 +92,15 @@ namespace WebApi.Services.MovieServices
         // Get One TitleBasic
         public TitleBasics GetTitleBasic(string id)
         {
-            return _ctx.TitleBasics.Find(id);
+            return _ctx.TitleBasics
+                .Include(x => x.OmdbData)
+                .Include(x => x.TitleRatings)
+                .FirstOrDefault(x => x.Id == id);
         }
         #endregion
 
         #region TitleAkas
-        
+
         public int CountTitleAkas()
         {
             return _ctx.TitleAkas.Count();

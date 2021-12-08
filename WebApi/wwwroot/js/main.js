@@ -59,6 +59,10 @@ require(['knockout'], (ko) => {
         viewModel: { require: "components/account/disconnected/disconnected" },
         template: { require: "text!components/account/disconnected/disconnected.html" }
     });
+    ko.components.register("title-page", {
+        viewModel: {require: "components/titlePage/titlePage"},
+        template: {require: "text!components/titlePage/titlePage.html"}
+    });
 });
 
 requirejs(["knockout", "viewmodel"], function (ko, vm) {

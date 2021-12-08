@@ -1,0 +1,47 @@
+<div class="container container-specific" data-bind="titlePage">
+    <div class="blur-adult">
+        <div class="row">
+            <div class="col-4 justify-content-center">
+                <div class="container-poster-specific">
+                    <img class="poster-specific" alt="poster" height="100%" width="100%"
+                         data-bind="attr:{src: poster}"/>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="col">
+                        <div class="title-name-specific" data-bind="text: title"></div>
+                        <div class="title-type-specific" data-bind="text: titleType"></div>
+                    </div>
+                    <div class="container-rating col d-flex justify-content-end">
+                        <div class="title-rating-average mw-20 p-2">
+                            <div class="title-rating-text">Average</div>
+                            <div class="on10">
+                                <i class="title-rating-star bi bi-star-fill"></i>
+                                <span class="rating-number" data-bind="text: rating"></span>/10
+                            </div>
+                        </div>
+                        <div class="p-2">
+                            <div class="title-rating-text">My rating</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-infos d-flex .justify-content-xl-center mb-1">
+                    <div class="container-startYear p-2">
+                        <div class="title-specific-startYear formatYear"></div>
+                    </div>
+                    <div class="container-runtimes p-2">
+                        <div class="title-specific-runtimes hourConverted"></div>
+                    </div>
+                    <div class="container-genres p-2">
+                        <div class="title-specific-genres" data-bind="text: genres"></div>
+                    </div>
+                </div>
+                <div class="plot-container">
+                    <div class="title-specific-overview">Overview</div>
+                    <div class="title-specific-plot" data-bind="text: plot"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,8 @@ namespace WebApi.ViewModels.Profiles.Movie
         {
             CreateMap<TitleBasics, TitleBasicsListViewModel>();
             CreateMap<TitleBasicsListViewModel, TitleBasics>();
+            CreateMap<TitleBasics, TitleBasicsViewModel>();
+            CreateMap<TitleBasicsViewModel, TitleBasics>();
         }
     }
 }
