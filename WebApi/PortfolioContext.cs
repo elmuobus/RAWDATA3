@@ -54,6 +54,7 @@ namespace WebApi
         {
             base.OnModelCreating(modelBuilder);
 
+            //Kan linke søgeresultaterne til andre tabeller her, for at få resultaterne ind i objekterne. Så hvis der på forsiden skal bruges reting kan jeg hente info ved at linke her. 
             //movie schema
             modelBuilder.Entity<TitleBasics>().ToTable("titlebasics", "movie");
             modelBuilder.Entity<TitleBasics>()

@@ -2,11 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\WebApi",
-    "\\WebApi\\Domain",
-    "\\WebApi\\Domain\\SearchDomain",
-    "\\WebApi\\Services",
-    "\\WebApi\\Services\\MovieServices"
+    "\\WebApi\\Controllers",
+    "\\WebApi\\Controllers\\SiteFunctionsControllers",
+    "\\WebApi\\wwwroot",
+    "\\WebApi\\wwwroot\\js",
+    "\\WebApi\\wwwroot\\js\\components",
+    "\\WebApi\\wwwroot\\js\\components\\home",
+    "\\WebApi\\wwwroot\\js\\services"
   ],
-  "SelectedNode": "\\WebApi\\Domain\\SearchDomain\\ExactMatchSearchResult.cs",
+  "SelectedNode": "\\WebApi\\wwwroot\\js\\services\\storeService.js",
   "PreviewInSolutionExplorer": false
 }
