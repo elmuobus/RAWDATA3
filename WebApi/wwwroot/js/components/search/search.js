@@ -13,6 +13,16 @@ define(['knockout', 'storeService', 'simpleSearchService', 'myEventListener'], f
     let triggerSearch = () => {
       store.titles.dispatch({ type: "SEARCH" ,payload: searchText() });
     }
+
+    let currentTitles = store.titles.getState();
+    store.titles.subscribe(() => {
+        let previousTitles = currentTitles;
+        currentTitles = store.titles.getState();
+
+        if (previousTitles.searchText !== currentTitles.searchText) {
+            searchText(currentTitles.searchText);
+        }
+    });
     
     return {
       searchText,
@@ -20,7 +30,6 @@ define(['knockout', 'storeService', 'simpleSearchService', 'myEventListener'], f
       openSearchFilter,
       closeSearchFilter,
         triggerSearch,
-      simpleSearch
     };
   };
 });

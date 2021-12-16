@@ -27,8 +27,9 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener'], function
       let previousTitles = currentTitles;
       currentTitles = store.titles.getState();
       
-      if (previousTitles.types !== currentTitles.types) {
-        store.titles.dispatch({type: "PAGINATION", payload: 1});
+        if (previousTitles.types !== currentTitles.types) {
+            store.titles.dispatch({ type: "SEARCH", payload: "" });
+            store.titles.dispatch({type: "PAGINATION", payload: 1});
       }
       if (previousTitles.currentPage !== currentTitles.currentPage
       || previousTitles.searchText !== currentTitles.searchText
