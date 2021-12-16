@@ -1,26 +1,38 @@
-﻿define(["knockout", "myEventListener"], function (ko, myEventListener) {
+﻿define(["knockout", "storeService", "myEventListener"], function (ko, store, myEventListener) {
     
-    let currentView = ko.observable("home");
+    let currentView = ko.observable("titles");
+    
+    let currentMenuItem = ko.observable();
 
     let currentAccountButtonView = ko.observable("account-disconnected");
 
     let menuItems = [
-        { title: "Movies", component: "movie" },
-        { title: "Series", component: "series" },
-        { title: "Video-games", component: "video-game" },
+        { title: "Movies", types: "movie,tvMovie" },
+        { title: "Series", types: "tvMiniSeries,tvEpisode,tvSeries" },
+        { title: "Video-games", types: "videoGame" },
     ];
     
     let goHome = () => {
-      currentView("home");  
+        currentMenuItem(null);
+        store.titles.dispatch({type: "TYPES", payload: null});
     };
     
     let headerChangeContent = menuItem => {
-        currentView(menuItem.component)
+        if (currentView() !== "titles") {
+            currentView("titles");
+        }
+        currentMenuItem(menuItem.title);
+        store.titles.dispatch({type: "TYPES", payload: menuItem.types});
     };
 
     let headerIsActive = menuItem => {
-        return menuItem.component === currentView() ? "active" : "";
+        return menuItem.title === currentMenuItem() ? "active" : "";
     };
+
+    myEventListener.subscribe("goHome", function () {
+        currentView('titles');
+        goHome();
+    });
 
     myEventListener.subscribe("changeView", function (data) {
         currentView(data);

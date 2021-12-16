@@ -41,9 +41,9 @@ require(['knockout'], (ko) => {
         viewModel: { require: "components/bookmark/name/name" },
         template: { require: "text!components/bookmark/name/name.html" }
     });
-    ko.components.register("home", {
-        viewModel: { require: "components/home/home" },
-        template: { require: "text!components/home/home.html" }
+    ko.components.register("titles", {
+        viewModel: { require: "components/titles/titles" },
+        template: { require: "text!components/titles/titles.html" }
     });
     ko.components.register("search", {
         viewModel: { require: "components/search/search" },

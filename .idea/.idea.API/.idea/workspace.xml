@@ -7,7 +7,37 @@
     <projectFile profileName="WebApi">WebApi/WebApi.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9a8baf1c-666e-404d-93ff-a799dee69325" name="Changes" comment="" />
+=======
+    <list default="true" id="9a8baf1c-666e-404d-93ff-a799dee69325" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/bookmark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.API/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/Controllers/MovieControllers/TitleBasicsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Controllers/MovieControllers/TitleBasicsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/Controllers/UserControllers/TitleBookmarksController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Controllers/UserControllers/TitleBookmarksController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/Services/MovieServices/MovieBusinessLayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/Services/MovieServices/MovieBusinessLayer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/ViewModels/ListViewModel/User/TitleBookmarkListViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/ViewModels/ListViewModel/User/TitleBookmarkListViewModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/WebApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/WebApi.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/css/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/header.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/css/loading.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/css/loading.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/connected/connected.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/connected/connected.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/info/info.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/account/info/info.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/bookmark/title/title.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/bookmark/title/title.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/bookmark/title/title.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/bookmark/title/title.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/home/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/titles/titles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/titles/titles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/loading/loading.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/loading/loading.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/pagination/pagination.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/pagination/pagination.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/components/search/search.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/components/search/search.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/services/myEventListener.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/myEventListener.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/services/storeService.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/storeService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/services/titleService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebApi/wwwroot/js/viewmodel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApi/wwwroot/static/images/Facture N°2 - M4A.pdf" beforeDir="false" />
+    </list>
+>>>>>>> feat: delete useless file
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,10 +46,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="JSON File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -197,6 +227,9 @@
       <workItem from="1638529270039" duration="21376000" />
       <workItem from="1638728195569" duration="10257000" />
       <workItem from="1638873834092" duration="1513000" />
+      <workItem from="1638893732292" duration="402000" />
+      <workItem from="1639479620394" duration="19821000" />
+      <workItem from="1639651657520" duration="6911000" />
     </task>
     <servers />
   </component>

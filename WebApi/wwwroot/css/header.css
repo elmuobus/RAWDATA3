@@ -10,6 +10,10 @@
     color: #E0E0E0;
 }
 
+.link.active {
+    color: #FFFFFF;
+}
+
 .link:hover {
     color: #FFFFFF;
 }

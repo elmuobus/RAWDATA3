@@ -6,7 +6,10 @@ define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myE
     
     let profilePage = () => myEventListener.trigger("changeView", "profile");
     
-    let disconnected = () => myEventListener.trigger("changeAccountButtonView", "account-disconnected")
+    let disconnected = () => {
+      myEventListener.trigger("changeAccountButtonView", "account-disconnected")
+      myEventListener.trigger("goHome")
+    }
 
     return {
       username,

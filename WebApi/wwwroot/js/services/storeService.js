@@ -32,6 +32,7 @@ define(["redux"], (redux) => {
   
   const defaultTitlesConfig = {
     searchText: "",
+    types: null,
     currentPage: 1,
     pageSize: 20,
     totalPage: 0,
@@ -57,14 +58,38 @@ define(["redux"], (redux) => {
           totalPage: action.payload
         };
         break;
+      case "TYPES":
+        state = {
+          ...state,
+          types: action.payload
+        };
+        break;
     }
     return state;
   }
 
   const titles = redux.createStore(titlesReducer);
 
+
+  const defaultLoadingConfig = false;
+
+  const loadingReducer = (state = defaultLoadingConfig, action) => {
+    switch (action.type) {
+      case "START":
+        state = true;
+        break;
+      case "STOP":
+        state = false;
+        break;
+    }
+    return state;
+  }
+
+  const loading = redux.createStore(loadingReducer);
+
   return {
     auth,
     titles,
+    loading,
   }
 });

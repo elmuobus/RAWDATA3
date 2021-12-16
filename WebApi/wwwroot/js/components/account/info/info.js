@@ -27,6 +27,7 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
     }
     
     return {
+      picture,
       userName,
       titlesBookmark,
       namesBookmark,

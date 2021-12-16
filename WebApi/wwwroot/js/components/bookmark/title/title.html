@@ -1,23 +1,30 @@
-<div class="titles-container ps-4 pe-4" data-bind="foreach: titles">
-  <div class="title-container">
-    <div class="preview-poster-container">
+<div class="bookmarks-container ps-4 pe-4" data-bind="foreach: titles">
+  <div class="bookmark-container">
+    <div class="bookmark-poster-container">
       <!-- ko if: (poster && poster !== "N/A")  -->
-        <img class="preview-poster-background" alt="poster-background" height="100%" width="100%" data-bind="attr:{src: poster}" />
-        <img class="preview-poster" alt="poster" height="100%" width="100%" data-bind="attr:{src: poster}" />
+        <img class="bookmark-poster-background" alt="poster-background" height="100%" width="100%" data-bind="attr:{src: poster}" />
+        <img class="bookmark-poster" alt="poster" height="100%" width="100%" data-bind="attr:{src: poster}" />
       <!-- /ko -->
       <!-- ko if: (!poster || poster === "N/A") -->
-        <img class="preview-poster-background" alt="poster-background" height="100%" width="100%" src="static/images/noTitleImage.jpg" />
-        <img class="preview-poster" alt="poster" height="100%" width="100%" src="static/images/noTitleImage.jpg" />
+        <img class="bookmark-poster-background" alt="poster-background" height="100%" width="100%" src="static/images/noTitleImage.jpg" />
+        <img class="bookmark-poster" alt="poster" height="100%" width="100%" src="static/images/noTitleImage.jpg" />
       <!-- /ko -->
     </div>
-    <div class="d-flex justify-content-between mb-1">
-      <div class="title-name" data-bind="text: originalTitle"></div>
-      <div class="title-rating">
-        <i class="title-rating-star bi bi-star-fill"></i>
-        <div><span data-bind="text: rating"></span>/10</div>
+    <div class="bookmark-content">
+      <div class="bookmark-content-header">
+        <div class="d-flex align-items-baseline">
+          <div class="bookmark-title" data-bind="text: originalTitle"></div>
+          <div class="bookmark-genre" data-bind="text: genres"></div>
+        </div>
+        <div class="d-flex align-items-center">
+          <div class="bookmark-rating">
+            <i class="bookmark-icons bi bi-star-fill"></i>
+            <div><span data-bind="text: rating"></span>/10</div>
+          </div>
+          <i class="bookmark-icons bi bi-heart"></i>
+        </div>
       </div>
+      <div class="bookmark-description" data-bind="text: plot"></div>
     </div>
-    <div class="title-description" data-bind="text: originalTitle"></div>
   </div>
-</div>
 </div>

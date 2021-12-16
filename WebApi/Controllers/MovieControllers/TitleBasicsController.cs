@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
@@ -33,15 +34,38 @@ namespace WebApi.Controllers.MovieControllers
             var titleBasics = _movieBusinessLayer
                 .GetTitleBasics(pagesQueryString.Page, pagesQueryString.PageSize, pagesQueryString.SearchTitle)
                 .Select(CreateTitleBasicsListViewModel);
+            
             return Ok(CreatePagingResult(
                 pagesQueryString.Page,
                 pagesQueryString.PageSize,
-                _movieBusinessLayer.CountTitleBasics(),
+                _movieBusinessLayer.CountTitleBasics(pagesQueryString.SearchTitle),
                 titleBasics,
                 nameof(GetTitleBasics)
             ));
         }
-
+        
+        public class SpecificPagesQueryStringWithSearch : PagesQueryStringWithSearch
+        {
+            public string Types { get; set; } = "";
+        }
+        
+        [HttpGet("specific", Name = nameof(GetSpecificBasics))]
+        public IActionResult GetSpecificBasics([FromQuery]SpecificPagesQueryStringWithSearch pagesQueryString)
+        {
+            var types = pagesQueryString.Types.Split(",");
+            
+            var titleBasics = _movieBusinessLayer
+                .GetSpecificBasics(pagesQueryString.Page, pagesQueryString.PageSize, pagesQueryString.SearchTitle, types)
+                .Select(CreateTitleBasicsListViewModel);
+            return Ok(CreatePagingResult(
+                pagesQueryString.Page,
+                pagesQueryString.PageSize,
+                _movieBusinessLayer.CountSpecificBasics(pagesQueryString.SearchTitle, types),
+                titleBasics,
+                nameof(GetTitleBasics)
+            ));
+        }
+        
         [HttpGet("{id}", Name = nameof(GetTitleBasic))]
         public IActionResult GetTitleBasic(string id)
         {

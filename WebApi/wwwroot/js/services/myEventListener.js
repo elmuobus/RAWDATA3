@@ -3,6 +3,7 @@
     
     let subscribe = (event, callback, target) => {
         let subscriber = { event, callback, target};
+        console.log("register")
 
         if (!subscribers.find(x => x.target === target && x.event === event))
             subscribers.push(subscriber);

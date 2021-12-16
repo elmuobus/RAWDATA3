@@ -1,17 +1,17 @@
-define(['knockout', 'myEventListener'], function (ko, myEventListener) {
+define(['knockout', 'storeService'], function (ko, store) {
   return function (_) {
-    let display = ko.observable("");
+    let display = ko.observable("close");
     
-    let close = () => display("close");
-    
-    myEventListener.subscribe("openLoading", () => {
-      display("");
+    let currentLoading = store.loading.getState();
+    store.loading.subscribe(() => {
+      let previousLoading = currentLoading;
+      currentLoading = store.loading.getState();
+      
+      if (previousLoading !== currentLoading) {
+        display(currentLoading ? "" : "close");
+      }
     });
     
-    myEventListener.subscribe("closeLoading", () => {
-      close();
-    });
-
     return {
       display,
     };

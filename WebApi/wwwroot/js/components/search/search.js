@@ -10,7 +10,6 @@ define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myE
     
     let triggerSearch = () => {
       store.titles.dispatch({ type: "SEARCH" ,payload: searchText() });
-      myEventListener.trigger("searching");
     }
     
     return {

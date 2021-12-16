@@ -53,9 +53,14 @@ namespace WebApi.Services.MovieServices
 
         #region TitleBasics
         
-        public int CountTitleBasics()
+        public int CountTitleBasics(string searchText)
         {
-            return _ctx.TitleBasics.Count();
+            return _ctx.TitleBasics.Count(x => x.OriginalTitle.Contains(searchText));
+        }
+        
+        public int CountSpecificBasics(string searchText, string[] types)
+        {
+            return _ctx.TitleBasics.Count(x => x.OriginalTitle.Contains(searchText) && types.Contains(x.TitleType));
         }
         
         // Get All TitleBasics
@@ -66,6 +71,19 @@ namespace WebApi.Services.MovieServices
                 .Include(x => x.OmdbData)
                 .Include(x => x.TitleRatings)
                 .Where(x => x.OriginalTitle.Contains(searchText))
+                .Skip(page * pageSize)
+                .Take(pageSize)
+                .ToList();
+        }
+        
+                
+        // Get All TitleBasics
+        public IList<TitleBasics> GetSpecificBasics(int page, int pageSize, string searchText, string[] types)
+        {
+            return _ctx.TitleBasics
+                .Include(x => x.OmdbData)
+                .Include(x => x.TitleRatings)
+                .Where(x => x.OriginalTitle.Contains(searchText) && types.Contains(x.TitleType))
                 .Skip(page * pageSize)
                 .Take(pageSize)
                 .ToList();

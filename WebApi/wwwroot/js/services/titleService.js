@@ -1,7 +1,7 @@
 define([], () => {
 
-    let getTitles = (textInput, page, pageSize, callback) => {
-        const  url = new URL("http://localhost:5002/api/title/basics");
+    let getTitles = (textInput, page, pageSize, types, callback) => {
+        const  url = new URL(`http://localhost:5002/api/title/basics${types ? "/specific" : ""}`);
         let params = {
             ...(textInput) && {
                 SearchTitle: textInput
@@ -12,6 +12,9 @@ define([], () => {
             ...(page) && {
                 Page: page
             },
+            ...(types) && {
+                Types: types
+            },
         };
         
         url.search = new URLSearchParams(params).toString();
@@ -20,7 +23,7 @@ define([], () => {
             .then(response => response.json())
             .then(json => callback(json));
     };
-    
+
     return {
         getTitles
     }

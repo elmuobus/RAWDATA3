@@ -110,6 +110,8 @@ namespace WebApi.Controllers.UserControllers
             model.OriginalTitle = titleBookmark.TitleBasics.OriginalTitle;
             model.Genres = titleBookmark.TitleBasics.Genres;
             model.Poster = titleBookmark.TitleBasics.OmdbData?.Poster;
+            model.Plot = titleBookmark.TitleBasics.OmdbData?.Plot;
+            Console.WriteLine(model.Plot);
             model.Rating = titleBookmark.TitleBasics.TitleRatings?.AverageRating;
             model.Url = GetUrlObject(nameof(GetTitleBookmark), new {titleBookmark.TitleId});
             return model;

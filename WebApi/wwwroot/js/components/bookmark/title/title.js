@@ -2,10 +2,10 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
   return function (_) {
     let titles = ko.observableArray([]);
     
-    const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImFsZXhpc2QiLCJuYmYiOjE2Mzg3Mzc5MjUsImV4cCI6MTYzODc0NTEyNSwiaWF0IjoxNjM4NzM3OTI1fQ.XBcj0AnaUuCyOmhjcGL_uDMdb4u72s8UbXmIldy6Bns"
-
     let getTitles = () => {
+      const { token } = store.auth.getState();
       us.getTitlesBookMark(token, 0, 20, data => {
+        console.log(data.items);
         titles(data.items);
       })
     };

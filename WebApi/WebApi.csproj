@@ -28,6 +28,10 @@
       <_ContentIncludedByDefault Remove="wwwroot\html\header.html" />
       <_ContentIncludedByDefault Remove="wwwroot\html\home.html" />
       <_ContentIncludedByDefault Remove="wwwroot\html\pagination.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\video-games\video-games.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\video-games\video-games.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\movies\movies.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\movies\movies.js" />
     </ItemGroup>
 
 </Project>

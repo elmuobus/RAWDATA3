@@ -1,42 +1,20 @@
 define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myEventListener) {
   return function (_) {
-    const init = () => {
-      const { currentPage, pageSize: size, totalPage: total } = store.titles.getState();
-      
-      pageSize(size);
-      currentPageNumber(currentPage);
-      totalPages(total);
-    } 
     
-    let pageSize = ko.observable();
-    let currentPageNumber = ko.observable();
-    let totalPages = ko.observable();
+    let pageSize = ko.observable(store.titles.getState().size);
+    let currentPageNumber = ko.observable(store.titles.getState().currentPage);
+    let totalPages = ko.observable(store.titles.getState().total);
     let pages = ko.observableArray([]);
     
-    const goFirstPage = () => {
-      currentPageNumber(1)
-      changePage();
-    }
+    const goFirstPage = () => changePage(1);
 
-    const goLastPage = () => {
-      currentPageNumber(totalPages())
-      changePage();
-    }
+    const goLastPage = () => changePage(totalPages());
 
-    const goPrevPage = () => {
-      currentPageNumber(currentPageNumber() - 1)
-      changePage();
-    }
+    const goPrevPage = () => changePage(currentPageNumber() - 1);
 
-    const goNextPage = () => {
-      currentPageNumber(currentPageNumber() + 1)
-      changePage();
-    }
+    const goNextPage = () => changePage(currentPageNumber() + 1);
 
-    const goToPage = (number) => {
-      currentPageNumber(number);
-      changePage();
-    }
+    const goToPage = (number) => changePage(number);
     
     const initPageArray = () => {
       const page = currentPageNumber()
@@ -58,17 +36,25 @@ define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myE
       pages(Array.from({length: (afterPages - beforePages) + 1}, (_, i) => i + beforePages));
     }
 
-    const changePage = () => {
-      store.titles.dispatch({type: "PAGINATION", payload: currentPageNumber()});
-      myEventListener.trigger("changeCurrentPage");
+    const changePage = (number) => {
+      store.titles.dispatch({type: "PAGINATION", payload: number});
     };
-
-    init();
     
-    myEventListener.subscribe("changePagination", () => {
-      const { totalPage } = store.titles.getState();
-      totalPages(totalPage);
-      initPageArray();
+    let currentTitles = store.titles.getState();
+    store.titles.subscribe(() => {
+      let previousTitles = currentTitles;
+      currentTitles = store.titles.getState();
+
+      if (previousTitles.currentPage !== currentTitles.currentPage) {
+        currentPageNumber(currentTitles.currentPage);
+      }
+      if (previousTitles.totalPage !== currentTitles.totalPage) {
+        totalPages(currentTitles.totalPage);
+      }
+      if (previousTitles.currentPage !== currentTitles.currentPage
+      || previousTitles.totalPage !== currentTitles.totalPage) {
+        initPageArray();
+      }
     });
 
     return {
