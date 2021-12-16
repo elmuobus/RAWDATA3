@@ -12,10 +12,15 @@
         { title: "Video-games", types: "videoGame" },
     ];
     
-    let goHome = () => {
+    let resetType = () => {
         currentMenuItem(null);
         store.titles.dispatch({type: "TYPES", payload: null});
     };
+    
+    let headerHomeContent = () => {
+        currentView('titles');
+        resetType();
+    }
     
     let headerChangeContent = menuItem => {
         if (currentView() !== "titles") {
@@ -30,12 +35,12 @@
     };
 
     myEventListener.subscribe("goHome", function () {
-        currentView('titles');
-        goHome();
+        headerHomeContent();
     });
 
     myEventListener.subscribe("changeView", function (data) {
         currentView(data);
+        resetType();
     });
 
     myEventListener.subscribe("changeAccountButtonView", function (data) {
@@ -46,7 +51,7 @@
         currentView,
         currentAccountButtonView,
         menuItems,
-        goHome,
+        headerHomeContent,
         headerChangeContent,
         headerIsActive,
     }

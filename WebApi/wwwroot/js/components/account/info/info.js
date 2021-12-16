@@ -21,9 +21,14 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
     
     let deleteProfile = () => {
       const { token } = store.auth.getState();
-      console.log(token);
-      us.delProfile(token);
       closeAccountModal();
+      us.delProfile(token, (status) => {
+        console.log(status)
+        if (status === 200) {
+          myEventListener.trigger("changeAccountButtonView", "account-disconnected");
+          myEventListener.trigger("changeView", "titles");
+        }
+      });
     }
     
     return {

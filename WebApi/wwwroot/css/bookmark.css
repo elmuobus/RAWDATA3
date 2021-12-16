@@ -20,6 +20,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 8px;
 }
 
 .bookmark-title {
@@ -44,8 +45,13 @@
 .bookmark-description {
     font-size: 16px;
     color: #F2F2F2;
+    line-height: 1.3em;
     text-overflow: ellipsis;
     overflow: hidden;
+    height: calc(100% / 1.3);
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
 }
 
 .bookmark-rating {
@@ -58,7 +64,7 @@
     letter-spacing: -0.03em;
     display: flex;
     align-items: center;
-    margin-left: 20px;
+    margin: 0 20px;
 }
 
 .bookmark-icons {
@@ -68,6 +74,11 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-right: 6px;
+}
+
+.bookmark-unselect-button {
+    font-size: 22px;
+    cursor: pointer;
 }
 
 .bookmark-poster-container {

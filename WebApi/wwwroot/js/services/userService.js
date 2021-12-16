@@ -49,6 +49,18 @@ define([], () => {
           .then(response => response.json())
           .then(json => callback(json));
     };
+
+    let delTitleBookmark = (token, titleId, callback) => {
+        let options = {
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+
+        fetch(`api/users/titlebookmarks/${titleId}`, options)
+          .then(response => callback(response.status));
+    };
     
     let delProfile = (token, callback) => {
         let options = {
@@ -59,13 +71,14 @@ define([], () => {
         }
 
         fetch("api/users", options)
-          .then(response => console.log(response))
+          .then(response => callback(response.status));
     };
 
     return {
         login,
         register,
         delProfile,
+        delTitleBookmark,
         getTitlesBookMark,
     }
 });

@@ -21,7 +21,8 @@
             <i class="bookmark-icons bi bi-star-fill"></i>
             <div><span data-bind="text: rating"></span>/10</div>
           </div>
-          <i class="bookmark-icons bi bi-heart"></i>
+          <i  data-bind="click: $parent.removeTitle"
+              class="bookmark-icons bi bi-heart-fill bookmark-unselect-button"></i>
         </div>
       </div>
       <div class="bookmark-description" data-bind="text: plot"></div>

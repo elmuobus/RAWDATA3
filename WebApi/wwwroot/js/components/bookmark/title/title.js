@@ -5,16 +5,24 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
     let getTitles = () => {
       const { token } = store.auth.getState();
       us.getTitlesBookMark(token, 0, 20, data => {
-        console.log(data.items);
         titles(data.items);
       })
     };
+    
+    let removeTitle = (title) => {
+      const { token } = store.auth.getState();
+      us.delTitleBookmark(token, title.titleId, (status) => {
+        if (status === 200)
+          titles.remove(title);
+      });
+    }
 
     getTitles();
 
     return {
       titles,
       getTitles,
+      removeTitle,
     };
   };
 });
