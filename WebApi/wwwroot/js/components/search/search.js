@@ -1,5 +1,7 @@
-define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myEventListener) {
-  return function (_) {
+define(['knockout', 'storeService', 'simpleSearchService', 'myEventListener'], function (ko, store, searchService, myEventListener) {
+    return function (_) {
+    
+
     let searchText = ko.observable("");
 
     let searchFilterView = ko.observable("searchPopUpButton");
@@ -17,7 +19,8 @@ define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myE
       searchFilterView,
       openSearchFilter,
       closeSearchFilter,
-      triggerSearch,
+        triggerSearch,
+      simpleSearch
     };
   };
 });

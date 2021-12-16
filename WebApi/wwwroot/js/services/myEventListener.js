@@ -1,5 +1,5 @@
 ﻿define([], () => {
-    let subscribers = [];
+    let subscribers = []; //List of events
     
     let subscribe = (event, callback, target) => {
         let subscriber = { event, callback, target};
@@ -9,10 +9,10 @@
             subscribers.push(subscriber);
     };
 
-    let trigger = (event, data) => {
+    let trigger = (event, data) => {//what
 
         subscribers.forEach(x => {
-            if (x.event === event) x.callback(data);
+            if (x.event === event) x.callback(data); //for alle subscribere, hvis event er den som vi kalder trigger med, kør callback med (nye?) data. Man trigger et event. 
         });
     };
 

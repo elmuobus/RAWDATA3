@@ -11,6 +11,8 @@ requirejs.config({
         titleService: "services/titleService",
         userService: "services/userService",
         storeService: "services/storeService",
+        simpleSearchService: "services/simpleSearchService",
+        siteFunctionsService: "services/siteFunctionsService",
         myEventListener: "services/myEventListener",
     }
 });

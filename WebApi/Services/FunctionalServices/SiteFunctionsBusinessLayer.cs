@@ -16,11 +16,11 @@ namespace WebApi.Services.FunctionalServices
             _ctx = new PortfolioContext(); //Had connectionString earlier as tests depended on test environment in IDE being able to recognize/save .env variables
         }
 
-        public List<RecommendedSearchResult> Recommended(string titleId)
+        public List<RecommendedSearchResult> Recommended(string titleId, int nbResult)
         {
             Console.WriteLine("Search Results Recommended");
 
-            var result = _ctx.RecommendedSearchResults.FromSqlInterpolated($"select * from recommended({titleId})");
+            var result = _ctx.RecommendedSearchResults.FromSqlInterpolated($"select * from recommended({titleId})").Take(nbResult);
 
             List<RecommendedSearchResult> searchResultsCoPlayers = new List<RecommendedSearchResult>();
 
@@ -33,12 +33,12 @@ namespace WebApi.Services.FunctionalServices
         }
 
 
-        public List<CoPlayersSearchResult> FindCoPlayers(string actorName)
+        public List<CoPlayersSearchResult> FindCoPlayers(string actorName, int nbResult)
         {
             Console.WriteLine("Search Results Coplayers");
 
             var actorsName = actorName;
-            var result = _ctx.CoPlayersSearchResults.FromSqlInterpolated($"select * from find_co_players({actorsName})"); ;
+            var result = _ctx.CoPlayersSearchResults.FromSqlInterpolated($"select * from find_co_players({actorsName})").Take(nbResult); ;
 
             List<CoPlayersSearchResult> searchResultsCoPlayers = new List<CoPlayersSearchResult>();
 
@@ -50,13 +50,13 @@ namespace WebApi.Services.FunctionalServices
             return searchResultsCoPlayers;
         }
 
-        public List<CoPlayersSearchResult> FindCoPlayersByID(string id)
+        public List<CoPlayersSearchResult> FindCoPlayersByID(string id, int nbResult)
         {
             Console.WriteLine("Search Results Coplayers by Id");
 
             var actorsId = id;
 
-            var result = _ctx.CoPlayersSearchResults.FromSqlInterpolated($"select * from find_co_players_by_id({actorsId})");
+            var result = _ctx.CoPlayersSearchResults.FromSqlInterpolated($"select * from find_co_players_by_id({actorsId})").Take(nbResult);
 
 
             List<CoPlayersSearchResult> searchResultsCoPlayers = new List<CoPlayersSearchResult>();
@@ -70,12 +70,12 @@ namespace WebApi.Services.FunctionalServices
         }
 
 
-        public List<PopularActorsInMovieSearchResult> PopularActorsInMovieSearch(string titleId)
+        public List<PopularActorsInMovieSearchResult> PopularActorsInMovieSearch(string titleId, int nbResult)
         {
             Console.WriteLine("Popular Actors In Movie " + titleId);
             var movieTitleId = titleId;
 
-            var result = _ctx.PopularActorsInMovieSearchResults.FromSqlInterpolated($"select * from popular_actors_in_movie({movieTitleId})"); ;
+            var result = _ctx.PopularActorsInMovieSearchResults.FromSqlInterpolated($"select * from popular_actors_in_movie({movieTitleId})").Take(nbResult); ;
 
             List<PopularActorsInMovieSearchResult> searchResultsPopularActorsInMovies = new List<PopularActorsInMovieSearchResult>();
 
@@ -98,12 +98,12 @@ namespace WebApi.Services.FunctionalServices
         }
         */
 
-        public List<PopularActorsCoPlayersSearchResult> SearchForPopularActorsCoPlayers(string actorId)
+        public List<PopularActorsCoPlayersSearchResult> SearchForPopularActorsCoPlayers(string actorId, int nbResult)
         {
             Console.WriteLine("Search Results Popular Coplayers by Id");
             //var ctx = new NorthwindContex(connectionString);
 
-            var result = _ctx.PopularActorsCoPlayersSearchResults.FromSqlInterpolated($"select * from popular_actors_co_players({actorId})");
+            var result = _ctx.PopularActorsCoPlayersSearchResults.FromSqlInterpolated($"select * from popular_actors_co_players({actorId})").Take(nbResult);
 
 
             List<PopularActorsCoPlayersSearchResult> searchResultsPopularActorsCoPlayers = new List<PopularActorsCoPlayersSearchResult>();

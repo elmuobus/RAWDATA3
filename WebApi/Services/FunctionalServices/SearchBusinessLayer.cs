@@ -31,9 +31,10 @@ namespace WebApi.Services.SearchServices
             return searchResultsSimpleSearch;
         }
 
-        public List<ExactMatchSearchResult> ExactMatchSearch(int nbResult, params string[] words) 
+        public List<ExactMatchSearchResult> ExactMatchSearch(int nbResult, string words) 
         {
             Console.WriteLine("Exact Match");
+            /*
             var query = "select * from exact_match('" + words[0] + "'";
 
             for (int i = 1; i < words.Length; i++) 
@@ -45,7 +46,8 @@ namespace WebApi.Services.SearchServices
             Console.WriteLine(query);
 
             var result = _ctx.ExactMatchSearchResults.FromSqlRaw(query).Take(nbResult); //SQL injections could be a danger, but had to construct string as we did not know number of arguments. 
-
+            */
+            var result = _ctx.ExactMatchSearchResults.FromSqlInterpolated($"select * from safe_exact_match({words})").Take(nbResult);
 
             List<ExactMatchSearchResult> searchResultExactMatches = new List<ExactMatchSearchResult>();
 
@@ -58,8 +60,9 @@ namespace WebApi.Services.SearchServices
             return searchResultExactMatches;
         }
 
-        public List<BestMatchSearchResult> BestMatchSearch(params string[] words)
+        public List<BestMatchSearchResult> BestMatchSearch(int nbResult, string words)
         {
+            /*
             Console.WriteLine("Best Match");
             var query = "select * from best_match('" + words[0] + "'";
 
@@ -74,6 +77,9 @@ namespace WebApi.Services.SearchServices
 
            
             var result = _ctx.BestMatchSearchResults.FromSqlRaw(query);
+            */
+            var result = _ctx.BestMatchSearchResults.FromSqlInterpolated($"select * from safe_best_match({words})").Take(nbResult);
+
 
             List<BestMatchSearchResult> searchResultBestMatches = new List<BestMatchSearchResult>();
 
@@ -86,12 +92,12 @@ namespace WebApi.Services.SearchServices
             return searchResultBestMatches; //return list of search results.
         }
         
-        public List<StructuredActorSearchResult> StructuredActorSearch(string str1, string str2, string str3, string str4)
+        public List<StructuredActorSearchResult> StructuredActorSearch(string str1, string str2, string str3, string str4, int nbResult)
         {
             Console.WriteLine("Search Results from Structured Actor Search");
             
             //only structured string search needéd user=null for some reason. 
-            var result = _ctx.StructuredActorSearchResults.FromSqlInterpolated($"select * from structured_actors_search({str1}, {str2}, {str3}, {str4})");
+            var result = _ctx.StructuredActorSearchResults.FromSqlInterpolated($"select * from structured_actors_search({str1}, {str2}, {str3}, {str4})").Take(nbResult);
 
 
             List<StructuredActorSearchResult> searchResultsStructuredActorSearches = new List<StructuredActorSearchResult>();
@@ -104,13 +110,13 @@ namespace WebApi.Services.SearchServices
             return searchResultsStructuredActorSearches;
         }
 
-        public List<StructuredStringSearchResult> StructuredStringSearch(string userName, string str1, string str2, string str3, string str4)
+        public List<StructuredStringSearchResult> StructuredStringSearch(string userName, string str1, string str2, string str3, string str4, int nbResult)
         {
             Console.WriteLine("Search Results from Structured String Search");
             
 
 
-            var result = _ctx.StructuredStringSearchResults.FromSqlInterpolated($"select * from structured_string_search({userName}, {str1}, {str2}, {str3}, {str4})");
+            var result = _ctx.StructuredStringSearchResults.FromSqlInterpolated($"select * from structured_string_search({userName}, {str1}, {str2}, {str3}, {str4})").Take(nbResult);
 
 
             List<StructuredStringSearchResult> searchResultsStringSearches = new List<StructuredStringSearchResult>();
