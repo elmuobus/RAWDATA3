@@ -1,4 +1,4 @@
-define(['knockout', 'titleService', 'storeService', 'myEventListener'], function (ko, ts, store, myEventListener) {
+define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSearchService'], function (ko, ts, store, myEventListener, sss) {
   return function (_) {
     let titles = ko.observableArray([]);
     
@@ -11,7 +11,8 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener'], function
         pageSize,
         types,
         data => {
-          titles(data.items);
+            titles(data.items);
+            console.log(data.items);
           store.loading.dispatch({type: "STOP"});
           store.titles.dispatch({type: "RESULT", payload: data.totalPage + 1})
         },
@@ -37,8 +38,34 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener'], function
         getTitles();
       }
     });
+
+    /*
+    let getSearch = () => {
+        const { searchText, nbResult} = store.search.getState();
+        store.loading.dispatch({ type: "START" });
+        sss.getBestMatchSearchResult(
+            searchText,
+            nbResult,
+            data => {
+                console.log(data);
+                //titles(data.items); //Does not work, as i do not have correct elements to show. So it is done correctly, just need to make autocomplete and fill with titles. Make them links to urls i guess. 
+                store.loading.dispatch({ type: "STOP" });
+            },
+        );
+      };
+    //Så længe vi ikke rører titles() forbliver indhold det samme, s¨å vi kan lave foreach med elementer der kommer tilbage fra funktion i search.html tror jeg. Så er den tom før inåut er der, med mindre den er helt fuld? Either way ville være sindssygt.
+    //Bare forbinde observable med ting. Som i titles. Kunne sætte i titles, men mangler værdier og heller ikke sådan vi vil bruge på hjemmeside. 
+
+    setTimeout(() => {
+        getSearch();
+    }, 100);
     
-    return {
+  store.search.subscribe(() => {
+      getSearch();
+  });
+  */ 
+
+  return {
       titles,
       getTitles,
     };

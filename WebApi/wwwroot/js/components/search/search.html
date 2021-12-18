@@ -1,10 +1,11 @@
-<form class="d-flex search-input" data-bind="submit: triggerSearch">
+<form class="d-flex search-input" data-bind="submit: searchAttempt">
     <button type="submit">
         <i class="bi bi-search"></i>
     </button>
-    <input type="text" placeholder="Search" aria-label="search input" data-bind="textInput: searchText">
+    <input type="text" placeholder="Search" aria-label="search input" data-bind="value: searchText, valueUpdate: 'afterkeydown'">
 
     <div data-bind="template: searchFilterView"></div>
+
 </form>
 
 <script type="text/html" id="searchPopUpButton">
@@ -13,11 +14,16 @@
         </button>
     </script>
 
-    <script type="text/html" id="searchPopUp">
-        <div class="search-filter-container">
-            <div class="search-filter-header">FILTER</div>
-        </div>
-        <button class="filter" data-bind="click: closeSearchFilter">
-            <i class="bi bi-sliders"></i>
-        </button>
-    </script>
+<script type="text/html" id="searchPopUp">
+    <div class="search-filter-container">
+        <div class="search-filter-header">FILTER</div>
+    </div>
+    <button class="filter" data-bind="click: closeSearchFilter">
+        <i class="bi bi-sliders"></i>
+    </button>
+</script>
+
+
+<div data-bind="foreach: recommended">
+    <h1 class="search-result" data-bind="text: primaryTitle"></h1>
+</div>

@@ -87,11 +87,37 @@ define(["redux"], (redux) => {
     return state;
   }
 
-  const loading = redux.createStore(loadingReducer);
+    const loading = redux.createStore(loadingReducer);
+
+    const defaultSearchConfig = {
+        searchText: "",
+        nbResult: 10 //Default is getting 10 results. 
+    }
+
+    const searchReducer = (state = defaultSearchConfig, action) => {
+        switch (action.type) {
+        case "SEARCH":
+            state = {
+                ...state,
+                searchText: action.payload
+            };
+            break;
+        case "NBRESULT":
+            state = {
+                ...state,
+                nbResult: action.payload
+            };
+            break;
+        }
+        return state;
+    }
+
+    const search = redux.createStore(searchReducer);
 
   return {
     auth,
     titles,
-    loading,
+      loading,
+    search
   }
 });

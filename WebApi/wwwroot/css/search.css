@@ -1,0 +1,22 @@
+﻿.search-result {
+    font-size: 22px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    border-bottom: 1px solid white;
+    border-top: none;
+    color: black;
+    background: -moz-linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    background: -webkit-linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    background: linear-gradient(139.21deg, #D81F26 3.24%, #D91E78 119.37%);
+    padding: 0px;
+    border: 1px solid pink;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    border-radius: 5px;
+}
+
+.search-result:hover {
+    background: whitesmoke;
+    cursor: pointer;
+}
