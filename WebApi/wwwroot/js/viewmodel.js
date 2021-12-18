@@ -1,4 +1,4 @@
-﻿define(["knockout", "storeService", "myEventListener"], function (ko, store, myEventListener) {
+﻿define(["knockout", "storeService"], function (ko, store) {
     
     let currentView = ko.observable(store.view.getState().component);
     

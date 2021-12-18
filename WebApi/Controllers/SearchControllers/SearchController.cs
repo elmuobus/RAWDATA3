@@ -4,7 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
+using WebApi.Controllers.MovieControllers;
+using WebApi.Domain.SearchDomain;
 using WebApi.Services.SearchServices;
+using WebApi.ViewModels.Search;
 
 namespace WebApi.Controllers.SearchControllers
 {
@@ -14,9 +17,11 @@ namespace WebApi.Controllers.SearchControllers
     {
         private const string BaseExactMatchRoute = "api/search";
         private readonly SearchBusinessLayer _searchBusinessLayer;
+        private readonly LinkGenerator _linkGenerator;
 
-        public SearchController()
+        public SearchController(LinkGenerator linkGenerator)
         {
+            _linkGenerator = linkGenerator;
             _searchBusinessLayer = new SearchBusinessLayer();
         }
 
@@ -30,7 +35,7 @@ namespace WebApi.Controllers.SearchControllers
         [HttpGet("bestmatch")]
         public IActionResult BestMatchSearch(string searchKeys, int nbResult)//Should probably have nbResult like exactmatch.
         {
-            var bestMatches = _searchBusinessLayer.BestMatchSearch(nbResult, searchKeys);
+            var bestMatches = _searchBusinessLayer.BestMatchSearch(nbResult, searchKeys).Select(CreateBestMatchSearchViewModel);
             return Ok(bestMatches);
         }
         
@@ -55,6 +60,13 @@ namespace WebApi.Controllers.SearchControllers
             return Ok(titles);
         }
 
-
+        private BestMatchSearchViewModel CreateBestMatchSearchViewModel(BestMatchSearchResult bestMatch)
+        {
+            return new BestMatchSearchViewModel() {
+                Url =  _linkGenerator.GetPathByAction(HttpContext, "GetTitleBasic", "TitleBasics", new {Id = bestMatch.TitleId}),
+                Rank = bestMatch.Rank,
+                PrimaryTitle = bestMatch.PrimaryTitle,
+            };
+        }
     }
 }

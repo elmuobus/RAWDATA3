@@ -25,5 +25,10 @@
 
 
 <div data-bind="foreach: recommended">
-    <h1 class="search-result" data-bind="text: primaryTitle"></h1>
+    <h1
+        class="search-result"
+        data-bind="
+            click: $parent.goToTitle,
+            text: primaryTitle"
+    ></h1>
 </div>

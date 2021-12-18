@@ -13,7 +13,6 @@ requirejs.config({
         storeService: "services/storeService",
         simpleSearchService: "services/simpleSearchService",
         siteFunctionsService: "services/siteFunctionsService",
-        myEventListener: "services/myEventListener",
     }
 });
 
@@ -38,10 +37,6 @@ require(['knockout'], (ko) => {
     ko.components.register("bookmark-titles", {
         viewModel: { require: "components/bookmark/title/title" },
         template: { require: "text!components/bookmark/title/title.html" }
-    });
-    ko.components.register("bookmark-names", {
-        viewModel: { require: "components/bookmark/name/name" },
-        template: { require: "text!components/bookmark/name/name.html" }
     });
     ko.components.register("titles", {
         viewModel: { require: "components/titles/titles" },

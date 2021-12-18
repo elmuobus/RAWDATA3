@@ -1,4 +1,4 @@
-define(['knockout', 'userService', 'storeService', 'myEventListener'], function (ko, us, store, myEventListener) {
+define(['knockout', 'userService', 'storeService'], function (ko, us, store) {
   return function (_) {
     let titles = ko.observableArray([]);
     

@@ -1,4 +1,4 @@
-define(['knockout', 'userService', 'storeService', 'myEventListener'], function (ko, us, store, myEventListener) {
+define(['knockout', 'userService', 'storeService'], function (ko, us, store) {
   return function (_) {
     let accountModal = ko.observable("noModal");
 
@@ -85,7 +85,7 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
       })
     }
     
-    let connected = () => myEventListener.trigger("changeAccountButtonView", "account-connected")
+    let connected = () => store.view.dispatch({type: "ACCOUNT", payload: "account-connected"});
 
     return {
       userName,

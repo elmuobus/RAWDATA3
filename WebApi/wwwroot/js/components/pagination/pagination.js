@@ -1,4 +1,4 @@
-define(['knockout', 'storeService', 'myEventListener'], function (ko, store, myEventListener) {
+define(['knockout', 'storeService'], function (ko, store) {
   return function (_) {
     
     let pageSize = ko.observable(store.titles.getState().size);

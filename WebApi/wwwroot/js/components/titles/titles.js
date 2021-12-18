@@ -1,4 +1,4 @@
-define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSearchService'], function (ko, ts, store, myEventListener, sss) {
+define(['knockout', 'titleService', 'storeService', 'simpleSearchService'], function (ko, ts, store, sss) {
   return function (_) {
     let titles = ko.observableArray([]);
     
@@ -56,8 +56,8 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSe
             },
         );
       };
-    //Så længe vi ikke rører titles() forbliver indhold det samme, s¨å vi kan lave foreach med elementer der kommer tilbage fra funktion i search.html tror jeg. Så er den tom før inåut er der, med mindre den er helt fuld? Either way ville være sindssygt.
-    //Bare forbinde observable med ting. Som i titles. Kunne sætte i titles, men mangler værdier og heller ikke sådan vi vil bruge på hjemmeside. 
+    //Sï¿½ lï¿½nge vi ikke rï¿½rer titles() forbliver indhold det samme, sï¿½ï¿½ vi kan lave foreach med elementer der kommer tilbage fra funktion i search.html tror jeg. Sï¿½ er den tom fï¿½r inï¿½ut er der, med mindre den er helt fuld? Either way ville vï¿½re sindssygt.
+    //Bare forbinde observable med ting. Som i titles. Kunne sï¿½tte i titles, men mangler vï¿½rdier og heller ikke sï¿½dan vi vil bruge pï¿½ hjemmeside. 
 
     setTimeout(() => {
         getSearch();

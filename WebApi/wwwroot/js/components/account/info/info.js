@@ -1,4 +1,4 @@
-define(['knockout', 'userService', 'storeService', 'myEventListener'], function (ko, us, store, myEventListener) {
+define(['knockout', 'userService', 'storeService'], function (ko, us, store) {
   return function (_) {
     let userName = ko.observable(store.auth.getState().username);
     
@@ -15,9 +15,7 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
 
     let getProfileInfo = () => {}
     
-    let goTitlesBookmark = () => myEventListener.trigger("changeView", "bookmark-titles");
-    
-    let goNamesBookmark = () => myEventListener.trigger("changeView", "bookmark-names");
+    let goTitlesBookmark = () => store.view.dispatch({type: "VIEW", payload: "bookmark-titles"});
     
     let deleteProfile = () => {
       const { token } = store.auth.getState();
@@ -25,8 +23,8 @@ define(['knockout', 'userService', 'storeService', 'myEventListener'], function 
       us.delProfile(token, (status) => {
         console.log(status)
         if (status === 200) {
-          myEventListener.trigger("changeAccountButtonView", "account-disconnected");
-          myEventListener.trigger("changeView", "titles");
+          store.view.dispatch({type: "VIEW", payload: "titles"});
+          store.view.dispatch({type: "ACCOUNT", payload: "account-disconnected"});
         }
       });
     }

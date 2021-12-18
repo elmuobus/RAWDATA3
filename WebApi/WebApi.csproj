@@ -32,6 +32,8 @@
       <_ContentIncludedByDefault Remove="wwwroot\js\components\video-games\video-games.js" />
       <_ContentIncludedByDefault Remove="wwwroot\js\components\movies\movies.html" />
       <_ContentIncludedByDefault Remove="wwwroot\js\components\movies\movies.js" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\bookmark\name\name.html" />
+      <_ContentIncludedByDefault Remove="wwwroot\js\components\bookmark\name\name.js" />
     </ItemGroup>
 
 </Project>
