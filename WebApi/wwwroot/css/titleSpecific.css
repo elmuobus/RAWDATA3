@@ -1,0 +1,80 @@
+.poster-specific {
+    max-width: 70%;
+    border-radius: 10px 10px 10px 10px;
+}
+
+.container-poster-specific {
+    margin-top: 30px;
+}
+
+.rating-number {
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+.on10 {
+    color: #BDBDBD;
+}
+.container-infos {
+    display: flex;
+    background-color: rgb(31,31,31);
+    border-radius: 6px;
+    align-items: center;
+    font-size: 12px;
+    white-space: nowrap;
+    color: whitesmoke;
+}
+
+.container-startYear {
+    margin-left: 20px;
+}
+.container-specific {
+    min-height: 0;
+    min-width: 0;
+}
+
+.container-rating {
+    color: whitesmoke;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.title-name-specific {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 67.77px;
+    color: whitesmoke;
+}
+
+.title-type-specific {
+    font-style: italic;
+    font-size: 22px;
+    color: #BDBDBD;
+    margin-bottom: 10px;
+}
+
+.title-specific-overview {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    color: whitesmoke;
+}
+
+.title-specific-plot {
+    font-style: normal;
+    color: #BDBDBD;
+}
+
+.title-rating-text
+{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    color: whitesmoke;
+    margin-block: 5px;
+    margin-top: 15px;
+}
+
+.plot-container {
+    margin-top: 20px;
+}

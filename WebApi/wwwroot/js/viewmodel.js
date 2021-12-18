@@ -1,10 +1,10 @@
 ﻿define(["knockout", "storeService", "myEventListener"], function (ko, store, myEventListener) {
     
-    let currentView = ko.observable("titles");
+    let currentView = ko.observable(store.view.getState().component);
     
     let currentMenuItem = ko.observable();
 
-    let currentAccountButtonView = ko.observable("account-disconnected");
+    let currentAccountButtonView = ko.observable(store.view.getState().accountComponent);
 
     let menuItems = [
         { title: "Movies", types: "movie,tvMovie" },
@@ -18,13 +18,12 @@
     };
     
     let headerHomeContent = () => {
-        currentView('titles');
-        resetType();
+        store.view.dispatch({type: "VIEW", payload: "titles"});
     }
     
     let headerChangeContent = menuItem => {
         if (currentView() !== "titles") {
-            currentView("titles");
+            store.view.dispatch({type: "VIEW", payload: "titles"});
         }
         currentMenuItem(menuItem.title);
         store.titles.dispatch({type: "TYPES", payload: menuItem.types});
@@ -34,17 +33,22 @@
         return menuItem.title === currentMenuItem() ? "active" : "";
     };
 
-    myEventListener.subscribe("goHome", function () {
-        headerHomeContent();
-    });
+    let currentViewState = store.view.getState();
+    store.view.subscribe(() => {
+        let previousViewState = currentViewState;
+        currentViewState = store.view.getState();
 
-    myEventListener.subscribe("changeView", function (data) {
-        currentView(data);
-        resetType();
-    });
-
-    myEventListener.subscribe("changeAccountButtonView", function (data) {
-        currentAccountButtonView(data);
+        if (previousViewState.component !== currentViewState.component) {
+            currentView(currentViewState.component);
+            resetType();
+        }
+        if (previousViewState.accountComponent !== currentViewState.accountComponent) {
+            currentAccountButtonView(currentViewState.accountComponent);
+        }
+        if (previousViewState.titleUrl !== currentViewState.titleUrl
+          && currentViewState.titleUrl !== null) {
+            store.view.dispatch({type: "VIEW", payload: "title-page"});
+        }
     });
 
     return {

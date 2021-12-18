@@ -22,6 +22,8 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSe
     setTimeout(() => {
       getTitles();
     }, 100);
+    
+    let goSpecificTitle = (title) => store.view.dispatch({type: "TITLE", payload: title.url})
 
     let currentTitles = store.titles.getState();
     store.titles.subscribe(() => {
@@ -69,6 +71,7 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSe
   return {
       titles,
       getTitles,
+      goSpecificTitle,
     };
   };
 });

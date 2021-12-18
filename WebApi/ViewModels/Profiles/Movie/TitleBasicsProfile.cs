@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WebApi.Domain.MovieDomain;
 using WebApi.ViewModels.ListViewModel.Movie;
+using WebApi.ViewModels.Movie;
 
 namespace WebApi.ViewModels.Profiles.Movie
 {
@@ -10,6 +11,8 @@ namespace WebApi.ViewModels.Profiles.Movie
         {
             CreateMap<TitleBasics, TitleBasicsListViewModel>();
             CreateMap<TitleBasicsListViewModel, TitleBasics>();
+            CreateMap<TitleBasics, TitleBasicsViewModel>();
+            CreateMap<TitleBasicsViewModel, TitleBasics>();
         }
     }
 }
