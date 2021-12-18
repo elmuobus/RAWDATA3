@@ -41,7 +41,7 @@ define(["redux"], (redux) => {
   const titlesReducer = (state = defaultTitlesConfig, action) => {
     switch (action.type) {
       case "SEARCH": //Is called by search function, but why. To save the value of searchText, so it can be used globally. 
-        state = {//Afhængig af action.type gør den det under. Den returner state objekt, hvor det her vist er staten man gav, samt searchtext. Hvad er action.payload. 
+        state = {//Afhï¿½ngig af action.type gï¿½r den det under. Den returner state objekt, hvor det her vist er staten man gav, samt searchtext. Hvad er action.payload. 
           ...state,
           searchText: action.payload//action.payload contains relevant data. 
         };
@@ -87,37 +87,70 @@ define(["redux"], (redux) => {
     return state;
   }
 
-    const loading = redux.createStore(loadingReducer);
+  const loading = redux.createStore(loadingReducer);
 
-    const defaultSearchConfig = {
-        searchText: "",
-        nbResult: 10 //Default is getting 10 results. 
+  const defaultSearchConfig = {
+    searchText: "",
+    nbResult: 10 //Default is getting 10 results. 
+  }
+
+  const searchReducer = (state = defaultSearchConfig, action) => {
+    switch (action.type) {
+    case "SEARCH":
+      state = {
+        ...state,
+        searchText: action.payload
+      };
+      break;
+    case "NBRESULT":
+      state = {
+        ...state,
+        nbResult: action.payload
+      };
+      break;
     }
+    return state;
+  }
 
-    const searchReducer = (state = defaultSearchConfig, action) => {
-        switch (action.type) {
-        case "SEARCH":
-            state = {
-                ...state,
-                searchText: action.payload
-            };
-            break;
-        case "NBRESULT":
-            state = {
-                ...state,
-                nbResult: action.payload
-            };
-            break;
-        }
-        return state;
+  const search = redux.createStore(searchReducer);
+
+  const defaultViewConfig = {
+    component: "titles",
+    accountComponent: "account-disconnected",
+    titleUrl: null,
+  };
+
+  const viewReducer = (state = defaultViewConfig, action) => {
+    switch (action.type) {
+      case "VIEW":
+        state = {
+          ...state,
+          component: action.payload
+        };
+        break;
+      case "ACCOUNT":
+        state = {
+          ...state,
+          accountComponent: action.payload
+        };
+        break;
+      case "TITLE":
+        state = {
+          ...state,
+          titleUrl: action.payload
+        };
+        break;
     }
+    return state;
+  }
 
-    const search = redux.createStore(searchReducer);
+  const view = redux.createStore(viewReducer);
 
   return {
     auth,
     titles,
-      loading,
-    search
+    search,
+    loading,
+    view,
   }
 });

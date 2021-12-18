@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace WebApi.ViewModels.ListViewModel.Movie
+﻿namespace WebApi.ViewModels.Movie
 {
     public class TitleBasicsViewModel
     {
@@ -18,6 +13,5 @@ namespace WebApi.ViewModels.ListViewModel.Movie
         public string EndYear { get; set; }
         public bool IsAdult { get; set; }
         public string Plot { get; set; }
-
     }
 }

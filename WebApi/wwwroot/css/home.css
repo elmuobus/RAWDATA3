@@ -63,6 +63,7 @@
 }
 
 .preview-poster-container {
+    cursor: pointer;
     aspect-ratio: 2 / 1;
     width: 100%;
     position: relative;
