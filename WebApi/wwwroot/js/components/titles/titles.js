@@ -30,6 +30,7 @@ define(['knockout', 'titleService', 'storeService', 'myEventListener', 'simpleSe
       
         if (previousTitles.types !== currentTitles.types) {
             store.titles.dispatch({ type: "SEARCH", payload: "" });
+            store.search.dispatch({ type: "SEARCH", payload: "asdfsfesf" }); //Empty search. Just need to clear observable somehow. Or searchtext in 
             store.titles.dispatch({type: "PAGINATION", payload: 1});
       }
       if (previousTitles.currentPage !== currentTitles.currentPage

@@ -28,7 +28,7 @@ define(['knockout', 'storeService', 'simpleSearchService', 'myEventListener', 's
         
         let getSearch = () => {
             const { searchText, nbResult } = store.search.getState();
-            if(searchText!==""){ //So it does not search to start with and return empty so API service gives error.
+            if(searchText!==""){ //So it does not search to start with and return empty so API service gives error. Maybe not needed as it is done in searchText.subscribe above?
             //store.loading.dispatch({ type: "START" });
             sss.getBestMatchSearchResult(
                 searchText,
@@ -49,9 +49,17 @@ define(['knockout', 'storeService', 'simpleSearchService', 'myEventListener', 's
             getSearch();
         }, 100);
 
-        store.search.subscribe(() => {
+        let currentTitles = store.titles.getState();
+        store.search.subscribe(() => { //Only need getsearch() to search, adding other stuff for switching pages.
+            let previousTitles = currentTitles;
+            currentTitles = store.titles.getState();
+            if (previousTitles.types !== currentTitles.types) {
+                searchText(null);
+            }
             getSearch();
         });
+
+        
 
     
         return {
