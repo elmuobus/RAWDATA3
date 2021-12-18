@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Routing;
 using WebApi.Domain.MovieDomain;
 using WebApi.Services.MovieServices;
 using WebApi.ViewModels.ListViewModel.Movie;
+using WebApi.ViewModels.Movie;
 
 namespace WebApi.Controllers.MovieControllers
 {
@@ -74,7 +75,16 @@ namespace WebApi.Controllers.MovieControllers
             if (titleBasic == null)
                 return NotFound();
 
-            return Ok(titleBasic);
+            return Ok(CreateTitleBasicsViewModel(titleBasic));
+        }
+
+        private TitleBasicsViewModel CreateTitleBasicsViewModel(TitleBasics titleBasics)
+        {
+            var model = _mapper.Map<TitleBasicsViewModel>(titleBasics);
+            model.Poster = titleBasics.OmdbData?.Poster;
+            model.Plot = titleBasics.OmdbData?.Plot;
+            model.Rating = titleBasics.TitleRatings?.AverageRating; 
+            return model;
         }
 
         private TitleBasicsListViewModel CreateTitleBasicsListViewModel(TitleBasics titleBasics)

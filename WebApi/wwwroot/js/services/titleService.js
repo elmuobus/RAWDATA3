@@ -24,7 +24,14 @@ define([], () => {
             .then(json => callback(json));
     };
 
+    let getTitle = (url, callback) => {
+        fetch(url.toString())
+            .then(response => response.json())
+            .then(json => callback(json));
+    };
+
     return {
-        getTitles
+        getTitles,
+        getTitle
     }
 });
