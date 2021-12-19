@@ -39,7 +39,6 @@ define(['knockout', 'userService', 'storeService'], function (ko, us, store) {
       closeAccountModal,
       getProfileInfo,
       goTitlesBookmark,
-      goNamesBookmark,
       deleteProfile,
     };
   };

@@ -29,6 +29,10 @@ define([], () => {
             .then(response => response.json())
             .then(json => callback(json));
     };
+    
+    let seeBookmark = () => {
+        
+    }
 
     return {
         getTitles,

@@ -50,6 +50,31 @@ define([], () => {
           .then(json => callback(json));
     };
 
+    let getTitleBookMark = (token, titleId, callback) => {
+        let options = {
+            headers: {
+                "Authorization": `Bearer ${token}`
+            }
+        }
+
+        fetch(`api/users/titlebookmarks/${titleId}`, options)
+          .then(response => callback(response.status))
+    };
+
+    let addTitleBookmark = (token, titleId, callback) => {
+        let options = {
+            method: "POST",
+            body: JSON.stringify({titleId}),
+            headers: {
+                "Authorization": `Bearer ${token}`,
+                "Content-Type": "application/json"
+            }
+        }
+
+        fetch(`api/users/titlebookmarks`, options)
+          .then(response => callback(response.status));
+    };
+
     let delTitleBookmark = (token, titleId, callback) => {
         let options = {
             method: "DELETE",
@@ -78,6 +103,8 @@ define([], () => {
         login,
         register,
         delProfile,
+        getTitleBookMark,
+        addTitleBookmark,
         delTitleBookmark,
         getTitlesBookMark,
     }
